@@ -1,4 +1,16 @@
+@import "@fontsource/inter/index.css";
+@import "@fontsource/salsa/index.css";
+@import "@fontsource/roboto/400.css"; /* Regular */
+@import "@fontsource/roboto/700.css";
+
 @import "tailwindcss";
 :root {
   background: #121212;
+}
+
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
