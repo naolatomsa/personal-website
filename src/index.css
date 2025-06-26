@@ -14,3 +14,52 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
+/* Hide scrollbar for all elements with this class */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+/* Normal state */
+#first_name {
+  display: block;
+  background-color: #1f2937;
+  width: 100%;
+  padding: 0.625rem;
+  font-size: 14px;
+  color: #fff;
+  /* border-radius: 2.375rem; */
+  border: 1px solid #c2410c;
+  fill: #fff;
+  outline: none;
+}
+
+/* Focus state */
+#first_name:focus {
+  border-color: #c2410c;
+  box-shadow: 0 0 0 1px #c2410c;
+}
+
+/* Textarea Styles */
+#message {
+  display: block;
+  background-color: #1f2937;
+  width: 100%;
+  padding: 0.625rem;
+  font-size: 14px;
+  color: #fff;
+  border-radius: 1rem; /* Adjust as needed */
+  border: 1px solid #c2410c;
+  resize: vertical; /* Allow resizing only vertically, optional */
+  outline: none;
+}
+
+/* Focus state */
+#message:focus {
+  border-color: #c2410c;
+  box-shadow: 0 0 0 1px #c2410c;
+}

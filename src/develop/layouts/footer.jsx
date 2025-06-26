@@ -8,26 +8,44 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 
-export const Footer = () => {
+export const Footer = ({ onScrollTo }) => {
   return (
-    <div className="text-white mt-20">
-      <div className="md:flex hidden justify-center items-center gap-5 py-5">
-        <button className="cursor-pointer hover:text-gray-500  text-white px-2 py-1 rounded-md">
+    <div className="text-white ">
+      <div className="flex flex-wrap justify-center items-center gap-5 py-5">
+        <button
+          onClick={() => onScrollTo("home")}
+          className="cursor-pointer hover:text-gray-500  text-white px-2 py-1 rounded-md"
+        >
           Home
         </button>
-        <button className="cursor-pointer hover:text-gray-500  text-white px-2 py-1 rounded-md">
+        <button
+          onClick={() => onScrollTo("about")}
+          className="cursor-pointer hover:text-gray-500  text-white px-2 py-1 rounded-md"
+        >
           About Me
         </button>
-        <button className="cursor-pointer hover:text-gray-500  text-white px-2 py-1 rounded-md">
+        <button
+          onClick={() => onScrollTo("services")}
+          className="cursor-pointer hover:text-gray-500  text-white px-2 py-1 rounded-md"
+        >
           Services
         </button>
-        <button className="cursor-pointer hover:text-gray-500  text-white px-2 py-1 rounded-md">
+        <button
+          onClick={() => onScrollTo("projects")}
+          className="cursor-pointer hover:text-gray-500  text-white px-2 py-1 rounded-md"
+        >
           Projects
         </button>
-        <button className="cursor-pointer hover:text-gray-500  text-white px-2 py-1 rounded-md">
+        <button
+          onClick={() => onScrollTo("testimonials")}
+          className="cursor-pointer hover:text-gray-500  text-white px-2 py-1 rounded-md"
+        >
           Testimonials
         </button>
-        <button className="cursor-pointer hover:text-gray-500  text-white px-2 py-1 rounded-md">
+        <button
+          onClick={() => onScrollTo("contact")}
+          className="cursor-pointer hover:text-gray-500  text-white px-2 py-1 rounded-md"
+        >
           Contact
         </button>
       </div>
@@ -51,7 +69,7 @@ export const Footer = () => {
         />
       </div>
 
-      <div className="w-full bg-black font-bold flex gap-2 justify-center items-center py-3">
+      <div className="w-full bg-black font-bold flex gap-2 md:text-[14px] text-xs justify-center items-center py-3">
         <span>&copy; {new Date().getFullYear()}</span>
         <span className="text-orange-700">Naol Atomsa </span>
 

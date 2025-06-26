@@ -16,22 +16,28 @@ const Home = () => {
       <div className="w-[90%] md:hidden grid">
         <img src={ima} alt="mypic" />
       </div>
-      <div className="md:w-3/4 w-3/4 grid md:gap-5 gap-3">
+      <div className="md:w-3/4 md:text-start text-center w-full grid md:gap-5 gap-3">
         <div>
           <h1 className="text-white text-xl font-bold">Hello, I am</h1>
-          <h1 className="text-orange-700 text-xl font-bold">Naol Atomsa</h1>
+          <h1
+            className="text-orange-700 text-xl font-bold"
+          
+          >
+            Naol Atomsa
+          </h1>
         </div>
         <div className="grid gap-1">
           <h1 className="text-white text-5xl font-bold">Software</h1>
-          <h1 className="text-white text-5xl ml-10 font-bold">Developer</h1>
+          <h1 className="text-white text-5xl md:ml-10 font-bold">Developer</h1>
         </div>
-        <div className="grid gap-2">
-          <h1 className="text-white md:w-3/4 w-[90%] font-sans">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        <div className="grid gap-3 md:place-items-start place-items-center">
+          <h1 className="text-white md:w-full text-balance w-full font-sans">
+            Passionate Full- Stack developer with a keen interest in software
+            development and machine learning. Known for my enthusiasm and energy
+            at work.
           </h1>
-          <button className="w-1/4 cursor-pointer hover:bg-orange-950 hover:text-gray-500 bg-orange-700 text-white px-2 py-1 rounded-md">
-            Hire Me
+          <button className="md:w-1/4 w-1/3 cursor-pointer hover:bg-orange-950 hover:text-gray-500 bg-orange-700 text-white px-2 py-1 rounded-md">
+            Contact Me
           </button>
         </div>
       </div>

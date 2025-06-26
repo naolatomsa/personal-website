@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "./navBar";
-import ima from "../../assets/newTransparent.png";
+import ima from "../../assets/aboutMe.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -12,7 +12,7 @@ import {
 
 export const AboutMe = () => {
   return (
-    <div className="md:flex font-sans grid md:gap-20  gap-10 md:justify-center md:mx-auto md:w-3/4  md:items-center place-content-center place-items-center  h-full">
+    <div className="md:flex font-sans grid md:gap-20 md:py-10 py-5 gap-10  md:mx-auto md:w-3/4  md:items-center place-content-center place-items-center  h-full">
       <div className="w-[90%] md:hidden grid">
         <img src={ima} alt="mypic" />
       </div>
@@ -38,9 +38,19 @@ export const AboutMe = () => {
           />
         </div>
       </div>
-      <div className="w-3/4 grid md:gap-5 gap-3">
+      <div className="md:w-3/4 w-[90%] grid place-items-center md:gap-5 gap-3">
         <div className="grid gap-1">
-          <h1 className="text-white text-3xl font-bold">About Me</h1>
+          <h1
+            className="text-white text-3xl text-center font-bold"
+            style={{
+              borderBottom: "1px solid transparent",
+              borderImage:
+                "linear-gradient(to right, transparent, red, transparent) 1", // Gradient effect
+             
+            }}
+          >
+            About Me
+          </h1>
         </div>
         <div>
           <p className="text-white text-[14px] font-bold">
@@ -65,12 +75,17 @@ export const AboutMe = () => {
           </div>
           <h1 className="text-white">JavaScript</h1>
 
-          <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4 dark:bg-gray-300">
+          {/* <div className="w-full h-2 rounded-full bg-gray-800 relative">
             <div
-              className="bg-white h-2.5 rounded-full dark:bg-orange-700"
+              className="h-2 rounded-full dark:bg-orange-700"
               style={{ width: "75%" }}
             ></div>
-          </div>
+            <div
+              className="absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-white border-2 dark:border-orange-700"
+              style={{ left: "74%" }}
+            />
+          </div> */}
+
           <h1 className="text-white">React Js</h1>
           <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4 dark:bg-gray-300">
             <div
