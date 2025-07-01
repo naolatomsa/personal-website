@@ -13,6 +13,9 @@ import {
 export const AboutMe = () => {
   return (
     <div className="md:flex font-sans grid md:gap-20 md:py-10 py-5 gap-10  md:mx-auto md:w-3/4  md:items-center place-content-center place-items-center  h-full">
+      <h1 className="dark:text-orange-700 md:hidden text-3xl libertinus-math-regular text-center font-bold">
+        About Me
+      </h1>
       <div className="w-[90%] md:hidden grid">
         <img src={ima} alt="mypic" />
       </div>
@@ -40,27 +43,15 @@ export const AboutMe = () => {
       </div>
       <div className="md:w-3/4 w-[90%] grid place-items-center md:gap-5 gap-3">
         <div className="grid gap-1">
-          <h1
-            className="text-white text-3xl text-center font-bold"
-            style={{
-              borderBottom: "1px solid transparent",
-              borderImage:
-                "linear-gradient(to right, transparent, red, transparent) 1", // Gradient effect
-             
-            }}
-          >
+          <h1 className="dark:text-orange-700 md:flex hidden text-3xl libertinus-math-regular text-center font-bold">
             About Me
           </h1>
         </div>
         <div>
-          <p className="text-white text-[14px] font-bold">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+          <p className="text-white  font-normal libertinus-math-regular text-[18px]">
+            Passionate Full- Stack developer with a keen interest in software
+            development and machine learning. Known for my enthusiasm and energy
+            at work.
           </p>
         </div>
 

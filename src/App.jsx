@@ -78,7 +78,7 @@ function App() {
         <NavBar onScrollTo={scrollToSection} />
       </div>
       <div ref={homeRef}>
-        <Home />
+        <Home onScrollTo={scrollToSection} />
       </div>
       <div className="" ref={aboutRef}>
         <AboutMe />

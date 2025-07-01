@@ -6,10 +6,10 @@ const Contact = () => {
   return (
     <div className="mx-auto md:py-10 py-5 justify-center md:w-1/2 w-[90%] h-full flex gap-10 flex-col items-center ">
       <div className="flex flex-col justify-center items-center">
-        <h1 className="text-2xl dark:text-orange-700 font-sans font-bold">
+        <h1 className="text-3xl dark:text-orange-700 libertinus-math-regular font-bold">
           Get In Touch
         </h1>
-        <p className="text-white">You can reach me anytime!</p>
+        <p className="text-white libertinus-math-regular text-xl" >You can reach me anytime!</p>
       </div>
       <div className="flex flex-col justify-center gap-5 items-center">
         <div className="flex gap-2">
@@ -40,7 +40,7 @@ const Contact = () => {
           rows="5"
           placeholder="How can I help you?"
         ></textarea>
-        <button className="w-full cursor-pointer hover:bg-orange-950 hover:text-gray-500 dark:bg-orange-700 text-white rounded-2xl py-3">
+        <button className="w-full cursor-pointer hover:bg-orange-950 hover:text-gray-500 dark:bg-orange-700 text-white rounded-2xl py-3 libertinus-math-regular">
           Submit
         </button>
       </div>

@@ -63,3 +63,21 @@ body {
   border-color: #c2410c;
   box-shadow: 0 0 0 1px #c2410c;
 }
+
+.libertinus-math-regular {
+  font-family: "Libertinus Math", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+@layer components {
+  .underline-hover-center {
+    @apply cursor-pointer hover:text-gray-500 font-semibold text-white px-2 py-1 rounded-md relative inline-block text-[18px];
+    @apply after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:translate-x-[-50%] after:bg-gradient-to-r after:from-transparent after:via-orange-700 after:to-transparent after:transition-all after:duration-500 hover:after:w-full;
+  }
+  .home-underline{
+    @apply relative hover:text-gray-500 cursor-pointer text-white text-center md:text-2xl text-xl font-bold;
+    @apply after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-transparent after:via-red-600 after:to-transparent after:transition-all after:duration-500 hover:after:left-0 hover:after:w-full active:transition-all active:duration-1000 active:after:left-0 active:after:w-full;
+  }
+}

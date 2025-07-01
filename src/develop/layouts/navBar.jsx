@@ -32,66 +32,60 @@ const NavBar = ({ onScrollTo }) => {
     }
   }, [isMobile]);
   return (
-    <div className="bg-[#121212] w-screen z-50 navbar">
-      <div className="flex  md:pt-10 font-sans py-5 items-center justify-between mx-auto md:w-3/4 w-[90%]">
-        <div className="md:w-[15%] cursor-pointer">
+    <div className="bg-[#121212] w-screen z-50 navbar libertinus-math-regular">
+      <div className="flex flex-wrap md:pt-10 font-sans py-5 items-center justify-between mx-auto md:w-3/4 w-[90%]">
+        <div className=" cursor-pointer">
           <h1
             onClick={() => onScrollTo("home")}
-            className="text-white  md:text-2xl font-bold"
-            style={{
-              borderBottom: "1px solid transparent",
-              borderImage:
-                "linear-gradient(to right, transparent, red, transparent) 1", // Gradient effect
-              width: "100%",
-            }}
+            className="libertinus-math-regular home-underline"
           >
             Naol Atomsa
           </h1>
           {/* <img src={naolHome} alt="naol home" /> */}
         </div>
-        <div className="md:flex hidden items-center gap-5 text-[14px]">
+        <div className=" md:flex flex-wrap hidden items-center gap-5 text-[14px] libertinus-math-regular">
           <button
             onClick={() => onScrollTo("home")}
-            className="cursor-pointer hover:text-gray-500 font-semibold text-white px-2 py-1 rounded-md"
+            className="libertinus-math-regular underline-hover-center"
           >
             Home
           </button>
           <button
             onClick={() => onScrollTo("about")}
-            className="cursor-pointer hover:text-gray-500 font-semibold text-white px-2 py-1 rounded-md"
+            className="libertinus-math-regular underline-hover-center"
           >
             About Me
           </button>
           <button
             onClick={() => onScrollTo("services")}
-            className="cursor-pointer hover:text-gray-500 font-semibold text-white px-2 py-1 rounded-md"
+            className="libertinus-math-regular underline-hover-center"
           >
             Services
           </button>
           <button
             onClick={() => onScrollTo("projects")}
-            className="cursor-pointer hover:text-gray-500 font-semibold text-white px-2 py-1 rounded-md"
+            className="libertinus-math-regular underline-hover-center"
           >
             Projects
           </button>
           <button
             onClick={() => onScrollTo("testimonials")}
-            className="cursor-pointer hover:text-gray-500 font-semibold text-white px-2 py-1 rounded-md"
+            className="libertinus-math-regular underline-hover-center"
           >
             Testimonials
           </button>
           <button
             onClick={() => onScrollTo("contact")}
-            className="cursor-pointer hover:text-gray-500 font-semibold text-white px-2 py-1 rounded-md"
+            className="libertinus-math-regular underline-hover-center"
           >
             Contact
           </button>
-          <button className="cursor-pointer hover:bg-orange-950 hover:text-gray-500 font-semibold bg-orange-700 text-white px-4 py-1 rounded-md">
+          <button className="libertinus-math-regular text-[18px] cursor-pointer hover:bg-orange-950 hover:text-gray-500 font-semibold bg-orange-700 text-white px-4 py-1 rounded-md">
             Download CV
           </button>
         </div>
         {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center">
+        <div className="md:hidden flex items-center libertinus-math-regular">
           <Menu
             open={isMobile}
             handler={setIsMobile}
@@ -132,7 +126,7 @@ const NavBar = ({ onScrollTo }) => {
                     >
                       <div
                         to={`/contact-us`}
-                        className="px-3 py-2 dark:bg-orange-700 text-white rounded-[4px] normal-case text-[14px] font-semibold md:leading-[20px] leading-[16px]"
+                        className="px-3 py-2 libertinus-math-regular dark:bg-orange-700 text-white rounded-[4px] normal-case text-[14px] font-semibold md:leading-[20px] leading-[16px]"
                       >
                         Contact Me
                       </div>
@@ -147,7 +141,7 @@ const NavBar = ({ onScrollTo }) => {
                       }}
                     >
                       {/* <FontAwesomeIcon icon={faGlobe} color="white" /> */}
-                      <a className=" text-sm font-semibold transition-all delay-100 hover:text-[#15ABC2] text-white">
+                      <a className="libertinus-math-regular text-sm font-semibold transition-all delay-100 hover:text-[#15ABC2] text-white">
                         Addis Ababa, Ethiopia
                       </a>
                     </li>
@@ -173,7 +167,7 @@ const NavBar = ({ onScrollTo }) => {
                       }}
                     >
                       <div className="flex justify-center  w-full">
-                        <h1 className="text-white hover:text-white active:text-white">
+                        <h1 className="text-white text-[14px] libertinus-math-regular hover:text-white active:text-white">
                           {parent.title}
                         </h1>
                       </div>
@@ -183,7 +177,7 @@ const NavBar = ({ onScrollTo }) => {
               ))}
 
               <MenuItem className="hover:bg-transparent flex justify-center focus:bg-transparent active:bg-transparent ">
-                <span className="px-3 py-2 dark:bg-orange-700 text-white rounded-[4px] normal-case text-[14px] font-semibold md:leading-[20px] leading-[16px]">
+                <span className="px-3 libertinus-math-regular py-2 dark:bg-orange-700 text-white rounded-[4px] normal-case text-[14px] font-semibold md:leading-[20px] leading-[16px]">
                   Download CV
                 </span>
               </MenuItem>

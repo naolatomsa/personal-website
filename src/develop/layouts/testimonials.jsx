@@ -117,13 +117,13 @@ const Testimonials = () => {
   return (
     <div className="min-h-screen  text-white flex flex-col items-center md:py-10 py-5  font-sans">
       {/* Testimonials Section Header */}
-      <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-center">
+      <h1 className="dark:text-orange-700 mb-4 text-3xl libertinus-math-regular text-center font-bold">
         Testimonials
       </h1>
-      <p className="text-lg sm:text-xl text-gray-400 mb-12 text-center max-w-2xl">
+      <h1 className="text-white  md:w-1/2 w-[90%] libertinus-math-regular text-[18px] text-center font-sans">
         Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa nibh
         lectus netus in, aliquet donec morbi convallis pretium
-      </p>
+      </h1>
 
       {/* Testimonials Carousel Container */}
       <div
@@ -160,8 +160,8 @@ const Testimonials = () => {
 
               {/* Testimonial Content */}
               <div className="flex-grow">
-                <p className="text-[14px] flex flex-col  leading-relaxed  text-white">
-                  <span className="dark:text-orange-700 place-self-start text-3xl font-extrabold mr-2">
+                <p className="libertinus-math-regular text-[14px] flex flex-col  leading-relaxed  text-white">
+                  <span className="dark:text-orange-700  place-self-start text-3xl font-extrabold mr-2 ">
                     “
                   </span>
                   {testimonial.quote}
@@ -175,10 +175,10 @@ const Testimonials = () => {
               </div>
               {/* Testimonial Author */}
               <div className="w-full">
-                <p className="font-bold dark:text-orange-700 text-lg">
+                <p className="font-bold dark:text-orange-700 text-lg libertinus-math-regular">
                   {testimonial.name}
                 </p>
-                <p className="text-sm text-gray-500">{testimonial.title}</p>
+                <p className="text-sm text-gray-500 libertinus-math-regular">{testimonial.title}</p>
               </div>
             </div>
           </div>
