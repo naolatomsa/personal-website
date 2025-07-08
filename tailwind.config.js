@@ -1,9 +1,8 @@
-import withMT from "@material-tailwind/react/utils/withMT";
- 
-export default withMT({
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
-  theme: {
-    extend: {},
+module.exports = {
+  screens: {
+    small: "480px", // Now @small:hidden will work
+    sm: "640px",
+    md: "768px",
+    // ...
   },
-  plugins: [],
-});
+};

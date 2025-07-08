@@ -7,10 +7,16 @@ import {
   faInstagram,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
+import { useTheme } from "../common/themeProvider";
 
 export const Footer = ({ onScrollTo }) => {
+  const { isDark } = useTheme();
   return (
-    <div className="text-white libertinus-math-regular">
+    <div
+      className={`libertinus-math-regular ${
+        isDark ? "text-black" : "text-white"
+      }`}
+    >
       <div className="flex flex-wrap justify-center items-center gap-5 py-5">
         <button
           onClick={() => onScrollTo("home")}
@@ -52,24 +58,25 @@ export const Footer = ({ onScrollTo }) => {
       <div className="flex justify-center items-center gap-5 py-5 mb-5">
         <FontAwesomeIcon
           icon={faLinkedin}
-          className="text-2xl text-white cursor-pointer"
+          className="text-2xl  cursor-pointer"
         />
-        <FontAwesomeIcon
-          icon={faGithub}
-          className="text-2xl text-white cursor-pointer"
-        />
+        <FontAwesomeIcon icon={faGithub} className="text-2xl  cursor-pointer" />
         <FontAwesomeIcon
           icon={faFacebook}
-          className="text-2xl text-white cursor-pointer"
+          className="text-2xl  cursor-pointer"
         />
 
         <FontAwesomeIcon
           icon={faInstagram}
-          className="text-2xl text-white cursor-pointer"
+          className="text-2xl  cursor-pointer"
         />
       </div>
 
-      <div className="w-full bg-black font-bold flex gap-2 md:text-[16px] text-[14px] justify-center items-center py-3 libertinus-math-regular">
+      <div
+        className={`w-full font-bold flex gap-2 md:text-[16px] text-[14px] justify-center items-center py-3 libertinus-math-regular ${
+          isDark ? "bg-gray-300" : "bg-black"
+        }`}
+      >
         <span>&copy; {new Date().getFullYear()}</span>
         <span className="text-orange-700">Naol Atomsa </span>
 

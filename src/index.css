@@ -6,9 +6,19 @@
 @import "tailwindcss";
 :root {
   background: #121212;
+  background-image: url("./assets/bg.svg");
+
+  /* background-attachment: fixed;  */
+}
+.dark {
+  background: #f3f4f6;
+  background-image: url("./assets/bg.svg");
+
 }
 
 body {
+  will-change: background-position;
+
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -70,14 +80,13 @@ body {
   font-style: normal;
 }
 
-
 @layer components {
   .underline-hover-center {
-    @apply cursor-pointer hover:text-gray-500 font-semibold text-white px-2 py-1 rounded-md relative inline-block text-[18px];
+    @apply cursor-pointer hover:text-gray-500 font-semibold  px-2 py-1 rounded-md relative inline-block text-[18px];
     @apply after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:translate-x-[-50%] after:bg-gradient-to-r after:from-transparent after:via-orange-700 after:to-transparent after:transition-all after:duration-500 hover:after:w-full;
   }
-  .home-underline{
-    @apply relative hover:text-gray-500 cursor-pointer text-white text-center md:text-2xl text-xl font-bold;
+  .home-underline {
+    @apply relative hover:text-gray-500 cursor-pointer  text-center md:text-2xl text-xl font-bold;
     @apply after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-transparent after:via-red-600 after:to-transparent after:transition-all after:duration-500 hover:after:left-0 hover:after:w-full active:transition-all active:duration-1000 active:after:left-0 active:after:w-full;
   }
 }

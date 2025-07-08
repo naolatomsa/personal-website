@@ -1,8 +1,10 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComputer } from "@fortawesome/free-solid-svg-icons";
+import { useTheme } from "../common/themeProvider";
 
 export const Services = () => {
+  const { isDark } = useTheme();
   return (
     <div className="mx-auto md:min-h-screen md:py-10 py-5 h-full flex gap-10 flex-col items-center ">
       <div className="flex flex-col gap-5 items-center justify-center">

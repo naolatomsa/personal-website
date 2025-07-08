@@ -14,6 +14,8 @@ import {
   faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { mobileData } from "../data/menuItems";
+import DarkModeToggle from "../common/darkMode";
+import { useTheme } from "../common/themeProvider";
 const NavBar = ({ onScrollTo }) => {
   //mobile devices
 
@@ -31,9 +33,16 @@ const NavBar = ({ onScrollTo }) => {
       document.body.style.overflow = ""; // Restore scrolling
     }
   }, [isMobile]);
+
+  //darkmode
+  const { isDark } = useTheme();
   return (
-    <div className="bg-[#121212] w-screen z-50 navbar libertinus-math-regular">
-      <div className="flex flex-wrap md:pt-10 font-sans py-5 items-center justify-between mx-auto md:w-3/4 w-[90%]">
+    <div
+      className={`${
+        isDark ? "bg-gray-200 text-black" : "bg-[#121212] text-white"
+      }  w-screen z-50 navbar libertinus-math-regular`}
+    >
+      <div className="flex  font-sans py-5 items-center justify-between mx-auto md:w-3/4 w-[90%]">
         <div className=" cursor-pointer">
           <h1
             onClick={() => onScrollTo("home")}
@@ -83,9 +92,15 @@ const NavBar = ({ onScrollTo }) => {
           <button className="libertinus-math-regular text-[18px] cursor-pointer hover:bg-orange-950 hover:text-gray-500 font-semibold bg-orange-700 text-white px-4 py-1 rounded-md">
             Download CV
           </button>
+          <DarkModeToggle />
         </div>
+
         {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center libertinus-math-regular">
+        <div
+          className={`md:hidden flex items-center  libertinus-math-regular ${
+            isDark ? "text-black" : "text-white"
+          }`}
+        >
           <Menu
             open={isMobile}
             handler={setIsMobile}
@@ -107,6 +122,9 @@ const NavBar = ({ onScrollTo }) => {
               id="menu"
               className="bg-[#21212133] border p-5 border-orange-700 backdrop-blur-3xl rounded-3xl w-full navbar:hidden flex flex-col gap-7 justify-center h-3/4 z-50"
             >
+              <div className="flex justify-end">
+                <DarkModeToggle />
+              </div>
               <MenuItem className="col-span-2 hover:bg-transparent justify-self-start focus:bg-transparent active:bg-transparent">
                 <div
                   className="flex gap-5 justify-center items-center"
@@ -141,7 +159,11 @@ const NavBar = ({ onScrollTo }) => {
                       }}
                     >
                       {/* <FontAwesomeIcon icon={faGlobe} color="white" /> */}
-                      <a className="libertinus-math-regular text-sm font-semibold transition-all delay-100 hover:text-[#15ABC2] text-white">
+                      <a
+                        className={`libertinus-math-regular text-[14px] ${
+                          isDark ? "text-black" : "text-white"
+                        }`}
+                      >
                         Addis Ababa, Ethiopia
                       </a>
                     </li>
@@ -167,7 +189,11 @@ const NavBar = ({ onScrollTo }) => {
                       }}
                     >
                       <div className="flex justify-center  w-full">
-                        <h1 className="text-white text-[14px] libertinus-math-regular hover:text-white active:text-white">
+                        <h1
+                          className={`text-[14px] libertinus-math-regular font-bold ${
+                            isDark ? "text-black" : "text-white"
+                          }`}
+                        >
                           {parent.title}
                         </h1>
                       </div>
