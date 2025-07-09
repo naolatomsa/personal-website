@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useTheme } from "../common/themeProvider";
 
 // Main App component
 const Testimonials = () => {
@@ -114,13 +115,19 @@ const Testimonials = () => {
     }
   };
 
+  const { isDark } = useTheme();
+
   return (
-    <div className="min-h-screen  text-white flex flex-col items-center md:py-10 py-5  font-sans">
+    <div
+      className={`min-h-screen flex flex-col items-center md:py-10 py-5  font-sans ${
+        isDark ? "text-black" : "text-white"
+      }`}
+    >
       {/* Testimonials Section Header */}
       <h1 className="dark:text-orange-700 mb-4 text-3xl libertinus-math-regular text-center font-bold">
         Testimonials
       </h1>
-      <h1 className="text-white  md:w-1/2 w-[90%] libertinus-math-regular text-[18px] text-center font-sans">
+      <h1 className=" md:w-1/2 w-[90%] libertinus-math-regular text-[18px] text-center font-sans">
         Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa nibh
         lectus netus in, aliquet donec morbi convallis pretium
       </h1>
@@ -142,7 +149,11 @@ const Testimonials = () => {
                 : "opacity-50 scale-95"
             }`}
           >
-            <div className="bg-gray-800 rounded-3xl  flex md:flex-row flex-col gap-10 items-center text-center p-5 md:p-10 h-full justify-between">
+            <div
+              className={`rounded-3xl  flex md:flex-row flex-col gap-10 items-center text-center p-5 md:p-10 h-full justify-between ${
+                isDark ? "bg-gray-300" : "bg-gray-800"
+              }`}
+            >
               {/* Testimonial Image */}
               <div className="flex-shrink-0">
                 <img
@@ -160,7 +171,7 @@ const Testimonials = () => {
 
               {/* Testimonial Content */}
               <div className="flex-grow">
-                <p className="libertinus-math-regular text-[14px] flex flex-col  leading-relaxed  text-white">
+                <p className="libertinus-math-regular text-[14px] flex flex-col  leading-relaxed  ">
                   <span className="dark:text-orange-700  place-self-start text-3xl font-extrabold mr-2 ">
                     “
                   </span>
@@ -178,7 +189,9 @@ const Testimonials = () => {
                 <p className="font-bold dark:text-orange-700 text-lg libertinus-math-regular">
                   {testimonial.name}
                 </p>
-                <p className="text-sm text-gray-500 libertinus-math-regular">{testimonial.title}</p>
+                <p className="text-sm text-gray-500 libertinus-math-regular">
+                  {testimonial.title}
+                </p>
               </div>
             </div>
           </div>
@@ -202,7 +215,11 @@ const Testimonials = () => {
           <button
             key={index}
             className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-              activeIndex === index ? "dark:bg-orange-700 w-8" : "bg-gray-600"
+              activeIndex === index
+                ? "dark:bg-orange-700 w-8"
+                : isDark
+                ? "bg-gray-400"
+                : "bg-gray-600"
             }`}
             onClick={() => handleDotClick(index)}
             aria-label={`Go to testimonial ${index + 1}`}

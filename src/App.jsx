@@ -1,4 +1,5 @@
-import react, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import NavBar from "./develop/layouts/navBar";
 import Home from "./develop/layouts/home";
 import { Footer } from "./develop/layouts/footer";
@@ -6,10 +7,27 @@ import { AboutMe } from "./develop/layouts/aboutMe";
 import { Services } from "./develop/layouts/services";
 import MyProjects from "./develop/layouts/myProjects";
 import Testimonials from "./develop/layouts/testimonials";
-import TestimonialRow from "./develop/layouts/testimonials";
 import Contact from "./develop/layouts/contact";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { BounceLoader } from "react-spinners";
+import { useTheme } from "./develop/common/themeProvider";
+
+function AnimatedSection({ children, reference }) {
+  const inView = useInView(reference, { once: false });
+
+  return (
+    <motion.div
+      ref={reference}
+      initial={{ opacity: 0, y: 100 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 2.5, ease: "easeOut" }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 function App() {
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
@@ -17,8 +35,16 @@ function App() {
   const projectsRef = useRef(null);
   const testimonialsRef = useRef(null);
   const contactRef = useRef(null);
-
+  const [loading, setLoading] = useState(true);
   const [activeSection, setActiveSection] = useState("home");
+  const { isDark } = useTheme();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const sectionRefs = {
     home: homeRef,
@@ -35,7 +61,6 @@ function App() {
     if (ref?.current) {
       const navbar = document.querySelector(".navbar");
       const navbarHeight = navbar ? navbar.offsetHeight : 0;
-
       const sectionTop =
         ref.current.getBoundingClientRect().top + window.pageYOffset;
 
@@ -46,21 +71,17 @@ function App() {
     }
   };
 
-  // Detect scroll position to set active section
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY >= 10) {
-        setActiveSection(""); // Not at top
+        setActiveSection("");
       } else {
-        setActiveSection("home"); // Top of page
+        setActiveSection("home");
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    // Initial check in case we're not at top on load
     handleScroll();
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -70,42 +91,56 @@ function App() {
       style={{
         borderBottom: "2px solid transparent",
         borderImage:
-          "linear-gradient(to right, transparent, red, transparent) 1", // Gradient effect
+          "linear-gradient(to right, transparent, red, transparent) 1",
         width: "100%",
       }}
     >
+      {loading && (
+        <div
+          className={`fixed inset-0 z-[9999] flex items-center justify-center bg-opacity-40 ${
+            isDark ? "bg-white" : "bg-black"
+          }`}
+        >
+          <BounceLoader color="#c2410c" size={80} />
+        </div>
+      )}
+
       <div className="fixed z-50">
         <NavBar onScrollTo={scrollToSection} />
       </div>
+
       <div ref={homeRef}>
         <Home onScrollTo={scrollToSection} />
       </div>
-      <div className="" ref={aboutRef}>
+
+      <AnimatedSection reference={aboutRef}>
         <AboutMe />
-      </div>
-      <div ref={servicesRef}>
+      </AnimatedSection>
+
+      <AnimatedSection reference={servicesRef}>
         <Services />
-      </div>
-      <div ref={projectsRef}>
+      </AnimatedSection>
+
+      <AnimatedSection reference={projectsRef}>
         <MyProjects />
-      </div>
-      <div ref={testimonialsRef}>
+      </AnimatedSection>
+
+      <AnimatedSection reference={testimonialsRef}>
         <Testimonials />
-      </div>
-      <div ref={contactRef}>
+      </AnimatedSection>
+
+      <AnimatedSection reference={contactRef}>
         <Contact />
-      </div>
-      <div>
-        <Footer onScrollTo={scrollToSection} />
-      </div>
-      {activeSection !== "home" ? (
+      </AnimatedSection>
+
+      <Footer onScrollTo={scrollToSection} />
+
+      {activeSection !== "home" && (
         <FontAwesomeIcon
           onClick={() => scrollToSection("home")}
-          className="fixed  text-5xl z-50 bottom-0 right-0 md:mb-7 md:mr-10 mb-7 mr-5 dark:text-orange-700"
+          className="fixed text-5xl z-50 bottom-0 right-0 md:mb-7 md:mr-10 mb-7 mr-5 dark:text-orange-700 cursor-pointer"
           icon={faCircleArrowUp}
         />
-      ) : (
-        ""
       )}
     </div>
   );

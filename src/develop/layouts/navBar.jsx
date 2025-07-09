@@ -36,6 +36,10 @@ const NavBar = ({ onScrollTo }) => {
 
   //darkmode
   const { isDark } = useTheme();
+
+
+  //hide navbar
+  
   return (
     <div
       className={`${
