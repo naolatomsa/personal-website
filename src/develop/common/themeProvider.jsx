@@ -22,8 +22,6 @@ export const ThemeProvider = ({ children }) => {
     }
   }, [isDark]);
 
-  console.log(isDark);
-
   return (
     <ThemeContext.Provider value={{ isDark, setIsDark }}>
       {children}

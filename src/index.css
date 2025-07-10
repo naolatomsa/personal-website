@@ -5,20 +5,14 @@
 
 @import "tailwindcss";
 :root {
-  background: #121212;
-  /* background-image: url("./assets/bg.svg"); */
-
-  /* background-attachment: fixed;  */
+  background: #141414;
 }
 .dark {
-  background: #f3f4f6;
-  /* background-image: url("./assets/bg.svg"); */
-
+  background: #e5e7eb;
 }
 
 body {
   will-change: background-position;
-
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

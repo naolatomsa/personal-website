@@ -19,9 +19,9 @@ function AnimatedSection({ children, reference }) {
   return (
     <motion.div
       ref={reference}
-      initial={{ opacity: 0, y: 100 }}
+      initial={{ opacity: 0, y: 0 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 2.5, ease: "easeOut" }}
+      transition={{ duration: 1.5, ease: "easeOut" }}
     >
       {children}
     </motion.div>
@@ -98,7 +98,7 @@ function App() {
       {loading && (
         <div
           className={`fixed inset-0 z-[9999] flex items-center justify-center bg-opacity-40 ${
-            isDark ? "bg-white" : "bg-black"
+            isDark ? "bg-[#e5e7eb]" : "bg-[#181818]"
           }`}
         >
           <BounceLoader color="#c2410c" size={80} />
@@ -114,7 +114,9 @@ function App() {
       </div>
 
       <AnimatedSection reference={aboutRef}>
-        <AboutMe />
+        <div className=" min-h-screen mt-10">
+          <AboutMe />
+        </div>
       </AnimatedSection>
 
       <AnimatedSection reference={servicesRef}>

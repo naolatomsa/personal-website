@@ -15,7 +15,7 @@ export const AboutMe = () => {
   const { isDark } = useTheme();
   return (
     <div
-      className={`md:flex font-sans grid md:gap-20 md:py-10 py-5 gap-10  md:mx-auto md:w-3/4  md:items-center place-content-center place-items-center  h-full ${
+      className={`md:flex font-sans grid md:gap-20 md:py-0 py-5 gap-10  md:mx-auto md:w-3/4  md:items-center place-content-center place-items-center  h-full ${
         isDark ? "text-black" : "text-white"
       }`}
     >

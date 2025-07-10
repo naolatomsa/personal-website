@@ -17,6 +17,32 @@
       href="https://fonts.googleapis.com/css2?family=LXGW+Marker+Gothic&family=Libertinus+Math&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+
+    <script>
+      // Disable Right Click
+      document.addEventListener("contextmenu", (e) => e.preventDefault());
+
+      // Disable key combinations for DevTools
+      document.addEventListener("keydown", (e) => {
+        // F12
+        if (e.key === "F12") {
+          e.preventDefault();
+        }
+
+        // Ctrl+Shift+I or Ctrl+Shift+J or Ctrl+U or Ctrl+S or Ctrl+Shift+C
+        if (
+          (e.ctrlKey &&
+            e.shiftKey &&
+            (e.key === "I" || e.key === "J" || e.key === "C")) ||
+          (e.ctrlKey && (e.key === "U" || e.key === "S"))
+        ) {
+          e.preventDefault();
+        }
+      });
+
+      // Disable drag & drop (optional)
+      document.addEventListener("dragstart", (e) => e.preventDefault());
+    </script>
   </head>
   <body>
     <div id="root"></div>

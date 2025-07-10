@@ -20,11 +20,6 @@ const NavBar = ({ onScrollTo }) => {
   //mobile devices
 
   const [isMobile, setIsMobile] = useState(false);
-  // const handleToggleForMobile = () => setIsMobile(!isMobile);
-
-  const handleExpand = (id) => {
-    setExpandedItem((prev) => (prev === id ? null : id)); // Toggle expanded state
-  };
 
   useEffect(() => {
     if (isMobile) {
@@ -37,13 +32,12 @@ const NavBar = ({ onScrollTo }) => {
   //darkmode
   const { isDark } = useTheme();
 
-
   //hide navbar
-  
+
   return (
     <div
       className={`${
-        isDark ? "bg-gray-200 text-black" : "bg-[#121212] text-white"
+        isDark ? "bg-[#dee1e6] text-black" : "bg-[#121212] text-white"
       }  w-screen z-50 navbar libertinus-math-regular`}
     >
       <div className="flex  font-sans py-5 items-center justify-between mx-auto md:w-3/4 w-[90%]">
@@ -177,7 +171,6 @@ const NavBar = ({ onScrollTo }) => {
               {mobileData.map((parent) => (
                 <div key={parent.id}>
                   <MenuItem
-                    onClick={() => handleExpand(parent.id)} // Toggle child items
                     className=" focus:bg-transparent active:bg-transparent"
                     style={{
                       borderBottom: "1px solid transparent",
