@@ -1,6 +1,5 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
   faGithub,
@@ -13,9 +12,9 @@ export const Footer = ({ onScrollTo }) => {
   const { isDark } = useTheme();
   return (
     <div
-      className={`libertinus-math-regular ${
-        isDark ? "text-black" : "text-white"
-      }`}
+      className={`libertinus-math-regular md:mx-24  border-[1px] ${
+        isDark ? "border-gray-300" : "border-[#222222]"
+      }  ${isDark ? "text-black" : "text-white"}`}
     >
       <div className="flex flex-wrap justify-center items-center gap-5 py-5">
         <button
@@ -74,7 +73,9 @@ export const Footer = ({ onScrollTo }) => {
 
       <div
         className={`w-full font-bold flex gap-2 md:text-[16px] text-[14px] justify-center items-center py-3 libertinus-math-regular ${
-          isDark ? "bg-gray-300" : "bg-black"
+          isDark
+            ? "bg-[#dee1e6] border-t border-gray-400"
+            : "bg-black border-t border-[#333333]"
         }`}
       >
         <span>&copy; {new Date().getFullYear()}</span>

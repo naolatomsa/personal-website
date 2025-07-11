@@ -1,8 +1,6 @@
 import React from "react";
-import NavBar from "./navBar";
 import ima from "../../assets/newTransparent.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
   faGithub,
@@ -15,7 +13,9 @@ const Home = ({ onScrollTo }) => {
   const { isDark } = useTheme();
   return (
     <div
-      className={`md:flex font-sans grid md:gap-0  md:mt-14 mt-40 gap-10 md:justify-center md:mx-auto md:w-3/4  md:items-center place-content-center place-items-center md:h-screen ${
+      className={`md:flex border-[1px] ${
+        isDark ? "border-gray-300" : "border-[#222222]"
+      } font-sans grid md:gap-0  md:py-10 p-5 md:mt-40 mt-30 gap-10 md:justify-center md:mx-auto md:w-3/4  md:items-center place-content-center place-items-center md:h-full ${
         isDark ? "text-black" : "text-white"
       }`}
     >
@@ -47,12 +47,18 @@ const Home = ({ onScrollTo }) => {
           </h1>
           <button
             onClick={() => onScrollTo("contact")}
-            className="libertinus-math-regular md:w-1/4 text-[16px] w-1/3 cursor-pointer hover:bg-orange-950 hover:text-gray-500 bg-orange-700 text-white px-2 py-1 rounded-md"
+            className={`libertinus-math-regular md:w-[30%] text-[16px] w-1/2 cursor-pointer   text-white   font-semibold   py-3  transition-transform duration-50 active:scale-[0.95] relative overflow-hidden border dark:bg-orange-700 dark:border-orange-700 rounded-full group ${
+              isDark ? " hover:text-black" : " hover:text-white"
+            }`}
           >
-            More...
+            <span className="relative libertinus-math-regular z-10 transition-colors duration-500 group-hover:text-white">
+              More...
+            </span>
+            <span className="absolute inset-0 bg-[#161616] w-0 group-hover:w-full transition-all duration-500 ease-in-out z-0 origin-left"></span>
           </button>
         </div>
       </div>
+
       <div className="w-[40%] md:grid gap-5 hidden">
         <img src={ima} alt="mypic" />
         <div className="flex gap-5 justify-center ">
@@ -75,6 +81,7 @@ const Home = ({ onScrollTo }) => {
           />
         </div>
       </div>
+
       <div className="flex md:hidden gap-10 justify-center ">
         <FontAwesomeIcon
           icon={faLinkedin}

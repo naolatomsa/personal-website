@@ -5,10 +5,47 @@
 
 @import "tailwindcss";
 :root {
-  background: #141414;
+  background: #121212;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
 }
+
+body {
+  cursor: none;
+}
+
 .dark {
   background: #e5e7eb;
+  background-image: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+}
+
+.not_dark {
+  /* background: #121212; */
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+}
+
+.darker {
+  /* background: #e5e7eb; */
+  background-image: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
 }
 
 body {
@@ -82,5 +119,110 @@ body {
   .home-underline {
     @apply relative hover:text-gray-500 cursor-pointer  text-center md:text-2xl text-xl font-bold;
     @apply after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-transparent after:via-red-600 after:to-transparent after:transition-all after:duration-500 hover:after:left-0 hover:after:w-full active:transition-all active:duration-1000 active:after:left-0 active:after:w-full;
+  }
+}
+
+.react-logo {
+  position: relative;
+  width: 30px;
+  /* height: 20px; */
+}
+
+.ellipse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 12px;
+  border: 2px solid #61dafb;
+  border-radius: 50%;
+  transform-origin: center;
+  transform: translate(-50%, -50%);
+  opacity: 0.7;
+}
+
+.rotate1 {
+  animation: spin1 10s linear infinite;
+}
+.rotate2 {
+  animation: spin2 12s linear infinite;
+}
+.rotate3 {
+  animation: spin3 14s linear infinite;
+}
+.rotate4 {
+  animation: spin4 10s linear infinite;
+}
+.rotate5 {
+  animation: spin5 12s linear infinite;
+}
+.rotate6 {
+  animation: spin6 14s linear infinite;
+}
+
+.center-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: #61dafb;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+@keyframes spin1 {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+}
+@keyframes spin2 {
+  0% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(420deg); /* 60 + 360 */
+  }
+}
+@keyframes spin3 {
+  0% {
+    transform: translate(-50%, -50%) rotate(120deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(480deg); /* 120 + 360 */
+  }
+}
+@keyframes spin4 {
+  0% {
+    transform: translate(-50%, -50%) rotate(40deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(400deg); /* 40 + 360 */
+  }
+}
+@keyframes spin5 {
+  0% {
+    transform: translate(-50%, -50%) rotate(20deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(380deg); /* 20 + 360 */
+  }
+}
+@keyframes spin6 {
+  0% {
+    transform: translate(-50%, -50%) rotate(12deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(372deg); /* 12 + 360 */
+  }
+}
+
+@layer utilities {
+  .animate-spin-slow {
+    animation: spin 60s linear infinite;
   }
 }

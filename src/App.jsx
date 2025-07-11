@@ -12,6 +12,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { BounceLoader } from "react-spinners";
 import { useTheme } from "./develop/common/themeProvider";
+import MouseGlow from "./develop/common/mouseGlow";
+import CustomCursor from "./develop/common/customCursor";
 
 function AnimatedSection({ children, reference }) {
   const inView = useInView(reference, { once: false });
@@ -21,7 +23,7 @@ function AnimatedSection({ children, reference }) {
       ref={reference}
       initial={{ opacity: 0, y: 0 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 1.5, ease: "easeOut" }}
+      transition={{ duration: 1, ease: "easeOut" }}
     >
       {children}
     </motion.div>
@@ -95,10 +97,13 @@ function App() {
         width: "100%",
       }}
     >
+      <MouseGlow isDark={isDark} />
+      <CustomCursor />
+
       {loading && (
         <div
-          className={`fixed inset-0 z-[9999] flex items-center justify-center bg-opacity-40 ${
-            isDark ? "bg-[#e5e7eb]" : "bg-[#181818]"
+          className={`fixed inset-0 z-[9999] flex items-center  justify-center bg-opacity-40 ${
+            isDark ? "bg-[#e5e7eb] darker" : "bg-[#121212] not_dark"
           }`}
         >
           <BounceLoader color="#c2410c" size={80} />
@@ -109,12 +114,12 @@ function App() {
         <NavBar onScrollTo={scrollToSection} />
       </div>
 
-      <div ref={homeRef}>
+      <AnimatedSection reference={homeRef}>
         <Home onScrollTo={scrollToSection} />
-      </div>
+      </AnimatedSection>
 
       <AnimatedSection reference={aboutRef}>
-        <div className=" min-h-screen mt-10">
+        <div className="">
           <AboutMe />
         </div>
       </AnimatedSection>

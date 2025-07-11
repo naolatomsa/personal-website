@@ -7,7 +7,9 @@ export const Services = () => {
   const { isDark } = useTheme();
   return (
     <div
-      className={`mx-auto md:py-10 py-5 h-full flex gap-10 flex-col items-center ${
+      className={`mx-auto h-full border-[1px] ${
+        isDark ? "border-gray-300" : "border-[#222222]"
+      }  md:py-10 py-5 h-full flex gap-10 flex-col items-center ${
         isDark ? "text-black" : "text-white"
       }`}
     >

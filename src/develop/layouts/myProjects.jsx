@@ -1,6 +1,4 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faComputer } from "@fortawesome/free-solid-svg-icons";
 import menas from "../../assets/menas.png";
 import { useTheme } from "../common/themeProvider";
 
@@ -8,7 +6,9 @@ const MyProjects = () => {
   const { isDark } = useTheme();
   return (
     <div
-      className={`mx-auto md:h-screen md:py-10 py-5  h-full flex gap-10 flex-col items-center ${
+      className={`mx-auto border-[1px] ${
+        isDark ? "border-gray-300" : "border-[#222222]"
+      } md:h-full md:py-10 py-5  h-full flex gap-10 flex-col items-center ${
         isDark ? "text-black" : "text-white"
       }`}
     >

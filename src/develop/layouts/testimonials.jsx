@@ -119,7 +119,9 @@ const Testimonials = () => {
 
   return (
     <div
-      className={`min-h-screen flex flex-col items-center md:py-10 py-5  font-sans ${
+      className={`h-full border-[1px]  ${
+        isDark ? "border-gray-300" : "border-[#222222]"
+      }  flex flex-col items-center md:py-10 py-5  font-sans ${
         isDark ? "text-black" : "text-white"
       }`}
     >
@@ -135,7 +137,7 @@ const Testimonials = () => {
       {/* Testimonials Carousel Container */}
       <div
         ref={carouselRef}
-        className="relative w-full  overflow-x-scroll scroll-smooth snap-x snap-mandatory flex py-4 hide-scrollbar" // Added hide-scrollbar for aesthetics
+        className="relative w-full   overflow-x-scroll scroll-smooth snap-x snap-mandatory flex py-4 hide-scrollbar" // Added hide-scrollbar for aesthetics
       >
         {testimonials.map((testimonial, index) => (
           <div
@@ -150,7 +152,7 @@ const Testimonials = () => {
             }`}
           >
             <div
-              className={`rounded-3xl  flex md:flex-row flex-col gap-10 items-center text-center p-5 md:p-10 h-full justify-between ${
+              className={`rounded-3xl flex md:flex-row flex-col md:gap-10 items-center text-center p-5 md:p-10 h-full justify-between ${
                 isDark ? "bg-gray-300" : "bg-gray-800"
               }`}
             >
@@ -210,7 +212,7 @@ const Testimonials = () => {
       `}</style>
 
       {/* Navigation Dots */}
-      <div className="flex justify-center mt-8 space-x-3">
+      <div className="flex justify-center md:mt-8 mt-3 space-x-3">
         {testimonials.map((_, index) => (
           <button
             key={index}
