@@ -14,6 +14,7 @@ import { BounceLoader } from "react-spinners";
 import { useTheme } from "./develop/common/themeProvider";
 import MouseGlow from "./develop/common/mouseGlow";
 import CustomCursor from "./develop/common/customCursor";
+import NewAboutMe from "./develop/layouts/newAboutMe";
 
 function AnimatedSection({ children, reference }) {
   const inView = useInView(reference, { once: false });
@@ -120,7 +121,7 @@ function App() {
 
       <AnimatedSection reference={aboutRef}>
         <div className="">
-          <AboutMe />
+          <NewAboutMe />
         </div>
       </AnimatedSection>
 

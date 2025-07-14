@@ -12,9 +12,9 @@ export const Footer = ({ onScrollTo }) => {
   const { isDark } = useTheme();
   return (
     <div
-      className={`libertinus-math-regular md:mx-24  border-[1px] ${
+      className={`libertinus-math-regular  border-[1px] ${
         isDark ? "border-gray-300" : "border-[#222222]"
-      }  ${isDark ? "text-black" : "text-white"}`}
+      }  ${isDark ? "text-black bg-[#dee1e6]" : "text-white bg-[#131313]"}`}
     >
       <div className="flex flex-wrap justify-center items-center gap-5 py-5">
         <button
@@ -74,7 +74,7 @@ export const Footer = ({ onScrollTo }) => {
       <div
         className={`w-full font-bold flex gap-2 md:text-[16px] text-[14px] justify-center items-center py-3 libertinus-math-regular ${
           isDark
-            ? "bg-[#dee1e6] border-t border-gray-400"
+            ? "bg-gray-300 border-t border-gray-400"
             : "bg-black border-t border-[#333333]"
         }`}
       >

@@ -65,7 +65,7 @@ const Contact = () => {
     <div
       className={`mx-auto border-[1px] ${
         isDark ? "border-gray-300" : "border-[#222222]"
-      } md:py-10 p-5 justify-center md:w-1/2 w-[90%] h-full flex gap-10 flex-col items-center ${
+      } md:py-10 p-5 justify-center md:w-1/2 w-full h-full flex gap-10 flex-col items-center ${
         isDark ? "text-black" : "text-white"
       }`}
     >
