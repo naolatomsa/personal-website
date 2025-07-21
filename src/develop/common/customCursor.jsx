@@ -93,7 +93,7 @@ export default function CustomCursor() {
       />
       {/* Inner fast dot */}
       <motion.div
-        className="fixed top-0 left-0 z-[9999] bg-white rounded-full pointer-events-none mix-blend-difference"
+        className="fixed top-0 left-0 z-[9999] md:flex hidden  bg-white rounded-full pointer-events-none mix-blend-difference"
         style={{
           width: innerSize,
           height: innerSize,

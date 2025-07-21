@@ -25,9 +25,7 @@ export const Services = () => {
       </div>
       <div className="md:flex md:w-3/4 w-[90%] grid justify-center gap-10 items-center">
         <div
-          className={`md:w-full p-5 rounded-2xl grid gap-5 ${
-            isDark ? "bg-gray-300" : "bg-gray-800"
-          }`}
+          className={`md:w-full bg-[#7C7C7C1F] bg-opacity-50 rounded-xl grid gap-5 p-10`}
         >
           <FontAwesomeIcon
             icon={faComputer}
@@ -44,9 +42,7 @@ export const Services = () => {
           </p>
         </div>
         <div
-          className={`md:w-full p-5 rounded-2xl grid gap-5 ${
-            isDark ? "bg-gray-300" : "bg-gray-800"
-          }`}
+          className={`md:w-full bg-[#7C7C7C1F] bg-opacity-50 rounded-xl grid gap-5 p-10`}
         >
           <FontAwesomeIcon
             icon={faComputer}
@@ -64,9 +60,7 @@ export const Services = () => {
           </p>
         </div>
         <div
-          className={`md:w-full p-5 rounded-2xl grid gap-5 ${
-            isDark ? "bg-gray-300" : "bg-gray-800"
-          }`}
+          className={`md:w-full bg-[#7C7C7C1F] bg-opacity-50 rounded-xl grid gap-5 p-10`}
         >
           <FontAwesomeIcon
             icon={faComputer}

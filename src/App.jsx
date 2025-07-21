@@ -90,7 +90,9 @@ function App() {
 
   return (
     <div
-      className="flex flex-col w-full gap-20 bg-transparent"
+      className={`flex flex-col w-full gap-20 bg-transparent ${
+        !isDark ? "diamond-grid" : "diamond-grid-white"
+      }`}
       style={{
         borderBottom: "2px solid transparent",
         borderImage:
@@ -104,7 +106,7 @@ function App() {
       {loading && (
         <div
           className={`fixed inset-0 z-[9999] flex items-center  justify-center bg-opacity-40 ${
-            isDark ? "bg-[#e5e7eb] darker" : "bg-[#121212] not_dark"
+            isDark ? "darker" : "not_dark"
           }`}
         >
           <BounceLoader color="#c2410c" size={80} />

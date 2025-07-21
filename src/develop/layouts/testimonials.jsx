@@ -152,9 +152,8 @@ const Testimonials = () => {
             }`}
           >
             <div
-              className={`rounded-3xl flex md:flex-row flex-col md:gap-10 items-center text-center p-5 md:p-10 h-full justify-between ${
-                isDark ? "bg-gray-300" : "bg-gray-800"
-              }`}
+              className={`rounded-xl bg-[#7C7C7C1F] bg-opacity-50  flex md:flex-row flex-col md:gap-10 items-center text-center p-5 md:p-10 h-full justify-between 
+                `}
             >
               {/* Testimonial Image */}
               <div className="flex-shrink-0">
@@ -220,8 +219,8 @@ const Testimonials = () => {
               activeIndex === index
                 ? "dark:bg-orange-700 w-8"
                 : isDark
-                ? "bg-gray-400"
-                : "bg-gray-600"
+                ? "bg-[#7C7C7C1F] bg-opacity-50 "
+                : "bg-[#7C7C7C1F] bg-opacity-50 "
             }`}
             onClick={() => handleDotClick(index)}
             aria-label={`Go to testimonial ${index + 1}`}

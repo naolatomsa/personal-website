@@ -2,6 +2,7 @@ import React from "react";
 import { useTheme } from "../common/themeProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faChevronDown,
   faGraduationCap,
   faLaptop,
   faStar,
@@ -15,6 +16,9 @@ import faExpressJs from "../../assets/expressJs.svg";
 import FaMongo from "../../assets/mongo.svg";
 import faSpringBoot from "../../assets/springBoot.svg";
 import faFlutter from "../../assets/flutter.svg";
+import faDocker from "../../assets/docker.svg";
+import faSQL from "../../assets/mySQL.svg";
+import faPostgreSQL from "../../assets/postgreSQL.svg";
 
 const NewAboutMe = () => {
   const { isDark } = useTheme();
@@ -29,12 +33,28 @@ const NewAboutMe = () => {
           Who Am I?
         </h1>
         <h1 className="md:w-3/4 w-[90%] libertinus-math-regular text-[18px] text-center">
-          Passionate Full- Stack developer with a keen interest in software
-          development and machine learning. Known for my enthusiasm and energy
-          at work.
+          <span>I’m {""}</span>
+          <span className="text-orange-700 font-bold">Naol Atomsa, </span>
+          <span>a passionate </span>
+          <span className="text-orange-700 font-bold">full-stack software engineer </span>
+
+          <span>
+            with a strong interest in machine learning and software development.
+            I graduated from Adama Science and Technology University with a
+            degree in Computer Science and Engineering. I’ve worked on projects
+            ranging from AI-powered learning platforms to network security
+            tools, using technologies like React, Node.js, Spring Boot, and
+            Docker. Currently, I’m part of the Ethiopian Artificial Intelligence
+            Institute,{" "}
+          </span>
+
+          <span className="text-orange-700 font-bold">
+            where I focus on building smart, efficient systems that make a
+            difference.
+          </span>
         </h1>
       </div>
-      <div className="md:flex  grid md:gap-0 gap-10  items-start md:w-3/4  w-[90%] justify-between   flex-wrap">
+      <div className="md:flex  grid  md:gap-0 gap-10  md:items-start w-[90%] place-items-center md:w-3/4  md:justify-between   flex-wrap">
         <div className="grid flex-1 gap-2 place-items-center">
           <div
             className={`border w-12 h-12 rounded-full flex items-center justify-center ${
@@ -45,7 +65,6 @@ const NewAboutMe = () => {
           >
             <FontAwesomeIcon
               icon={faGraduationCap}
-              dee1e6
               className=" text-orange-700 text-[15px]"
             />
           </div>
@@ -98,44 +117,95 @@ const NewAboutMe = () => {
           </h1>
         </div>
       </div>
-      <div className={` w-full grid gap-10 place-items-center `}>
+      <div className={` grid gap-10 place-items-center w-full `}>
         <h1
-          className={`dark:text-orange-700  border w-20 h-20  flex items-center justify-center rounded-full text-xl libertinus-math-regular text-center font-bold
-            ${
-              isDark
-                ? "bg-[#dee1e6]  border-gray-300"
-                : "bg-[#131313]  border-[#222222]"
-            }`}
+          className={`dark:text-gray-300 bg-orange-700   w-20 h-20  flex items-center justify-center rounded-full text-xl libertinus-math-regular text-center font-bold`}
         >
-          Skills
+          <div>
+            <h1>Skills</h1>
+            <FontAwesomeIcon size="md" icon={faChevronDown} />
+          </div>
         </h1>
-        <div className="flex libertinus-math-regular text-[12px] md:w-3/4 w-[90%] gap-5 justify-between flex-wrap">
+
+        <div className="flex libertinus-math-regular text-[12px] md:w-3/4 w-[90%] justify-center gap-10 md:justify-between flex-wrap">
           <div className="grid gap-1 place-items-center">
-            <img src={faReact} alt="react" className="flex-1 w-16 h-16" />
+            <img
+              src={faReact}
+              alt="react"
+              className="flex-1 md:w-16 md:h-16 w-10 h-10"
+            />
             <h1 className="text-center">React Js</h1>
           </div>
           <div className="grid gap-1 place-items-center">
-            <img src={faAngular} alt="react" className="flex-1 w-16 h-16" />
+            <img
+              src={faAngular}
+              alt="react"
+              className="flex-1 md:w-16 md:h-16 w-10 h-10"
+            />
             <h1 className="text-center">Angular Js</h1>
           </div>
           <div className="grid gap-1 place-items-center">
-            <img src={faNode} alt="react" className="flex-1 w-16 h-16" />
+            <img
+              src={faNode}
+              alt="react"
+              className="flex-1 md:w-16 md:h-16 w-10 h-10"
+            />
             <h1 className="text-center">Node Js</h1>
           </div>
           <div className="grid gap-1 place-items-center">
-            <img src={faExpressJs} alt="react" className="flex-1  w-16 h-16" />
+            <img
+              src={faExpressJs}
+              alt="react"
+              className="flex-1  md:w-16 md:h-16 w-10 h-10"
+            />
             <h1 className="text-center">Express Js</h1>
           </div>
           <div className="grid gap-1 place-items-center">
-            <img src={FaMongo} alt="react" className="flex-1 w-16 h-16" />
+            <img
+              src={FaMongo}
+              alt="react"
+              className="flex-1 md:w-16 md:h-16 w-10 h-10"
+            />
             <h1 className="text-center">Mongo DB</h1>
           </div>
           <div className="grid gap-1 place-items-center">
-            <img src={faSpringBoot} alt="react" className="flex-1 w-16 h-16" />
+            <img
+              src={faSpringBoot}
+              alt="react"
+              className="flex-1 md:w-16 md:h-16 w-10 h-10"
+            />
             <h1 className="text-center">Spring Boot</h1>
           </div>
           <div className="grid gap-1 place-items-center">
-            <img src={faFlutter} alt="react" className="flex-1 w-16 h-16" />
+            <img
+              src={faSQL}
+              alt="sql"
+              className="flex-1 md:w-16 md:h-16 w-10 h-10"
+            />
+            <h1 className="text-center">SQL</h1>
+          </div>
+          <div className="grid gap-1 place-items-center">
+            <img
+              src={faPostgreSQL}
+              alt="postgreSQL"
+              className="flex-1 md:w-16 md:h-16 w-10 h-10"
+            />
+            <h1 className="text-center">PostgreSQL</h1>
+          </div>
+          <div className="grid gap-1 place-items-center">
+            <img
+              src={faDocker}
+              alt="docker"
+              className="flex-1 md:w-16 md:h-16 w-10 h-10"
+            />
+            <h1 className="text-center">Docker</h1>
+          </div>
+          <div className="grid gap-1 place-items-center">
+            <img
+              src={faFlutter}
+              alt="react"
+              className="flex-1 md:w-16 md:h-16 w-10 h-10"
+            />
             <h1 className="text-center">Flutter</h1>
           </div>
         </div>

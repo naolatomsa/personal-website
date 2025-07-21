@@ -87,13 +87,7 @@ const Contact = () => {
           You can reach me anytime!
         </p>
       </div>
-      <button className="relative overflow-hidden border dark:bg-orange-700 dark:border-orange-700 text-white px-6 py-2 rounded-full group">
-        <span className="relative libertinus-math-regular z-10 transition-colors duration-500 group-hover:text-white">
-          Download CV
-        </span>
-        <span className="absolute inset-0 bg-[#141414] w-0 group-hover:w-full transition-all duration-500 ease-in-out z-0 origin-left"></span>
-      </button>
-
+      
       <form
         ref={form}
         onSubmit={sendEmail}
@@ -104,10 +98,10 @@ const Contact = () => {
             type="text"
             name="first_name"
             placeholder="First Name"
-            className={`block rounded-3xl w-full  p-2.5 text-sm  border border-orange-700 focus:border-orange-700 focus:ring-1 focus:ring-orange-700 outline-none ${
+            className={`block rounded-md w-full bg-[#7C7C7C1F] bg-opacity-50   p-2.5 text-sm  border border-orange-700 focus:border-orange-700 focus:ring-1 focus:ring-orange-700 outline-none ${
               isDark
-                ? "text-black bg-gray-300 placeholder-gray-800"
-                : "bg-gray-800 text-white placeholder-gray-300"
+                ? "text-black  placeholder-gray-800"
+                : " text-white placeholder-gray-300"
             }`}
             required
           />
@@ -115,10 +109,10 @@ const Contact = () => {
             type="text"
             name="last_name"
             placeholder="Last Name"
-            className={`block rounded-3xl w-full  p-2.5 text-sm  border border-orange-700 focus:border-orange-700 focus:ring-1 focus:ring-orange-700 outline-none ${
+            className={`block rounded-md w-full bg-[#7C7C7C1F] bg-opacity-50   p-2.5 text-sm  border border-orange-700 focus:border-orange-700 focus:ring-1 focus:ring-orange-700 outline-none ${
               isDark
-                ? "text-black bg-gray-300 placeholder-gray-800"
-                : "bg-gray-800 text-white placeholder-gray-300"
+                ? "text-black  placeholder-gray-800"
+                : " text-white placeholder-gray-300"
             }`}
             required
           />
@@ -127,32 +121,34 @@ const Contact = () => {
           type="email"
           name="email"
           placeholder="Email"
-          className={`block rounded-3xl w-full  p-2.5 text-sm  border border-orange-700 focus:border-orange-700 focus:ring-1 focus:ring-orange-700 outline-none ${
+          className={`block rounded-md w-full bg-[#7C7C7C1F] bg-opacity-50  p-2.5 text-sm  border border-orange-700 focus:border-orange-700 focus:ring-1 focus:ring-orange-700 outline-none ${
             isDark
-              ? "text-black bg-gray-300 placeholder-gray-800"
-              : "bg-gray-800 text-white placeholder-gray-300"
+              ? "text-black  placeholder-gray-800"
+              : " text-white placeholder-gray-300"
           }`}
           required
         />
         <textarea
           name="message"
           rows="5"
-          className={`block w-full  p-2.5 text-sm  border border-orange-700 rounded-3xl resize-y outline-none focus:border-orange-700 focus:ring-1 focus:ring-orange-700 ${
+          className={`block w-full bg-[#7C7C7C1F] bg-opacity-50  p-2.5 text-sm  border border-orange-700 rounded-md resize-y outline-none focus:border-orange-700 focus:ring-1 focus:ring-orange-700 ${
             isDark
-              ? "text-black bg-gray-300 placeholder-gray-800"
-              : "bg-gray-800 text-white placeholder-gray-300"
+              ? "text-black  placeholder-gray-800"
+              : " text-white placeholder-gray-300"
           }`}
           placeholder="How can I help you?"
         ></textarea>
         <button
           type="submit"
-          className={`libertinus-math-regular text-[16px] text-white cursor-pointer relative overflow-hidden border dark:bg-orange-700 dark:border-orange-700 py-3 rounded-full group w-full transition-transform duration-50 active:scale-[0.95]
+          className={`libertinus-math-regular text-[16px] text-white cursor-pointer relative overflow-hidden border dark:bg-orange-700 dark:border-orange-700 py-3 rounded-md group w-full transition-transform duration-50 active:scale-[0.95]
            `}
         >
           <span className="relative libertinus-math-regular z-10 transition-colors duration-500 group-hover:text-white">
             Submit
           </span>
-          <span className={`absolute inset-0 bg-[#161616] w-0 group-hover:w-full transition-all duration-1000 ease-in-out z-0 origin-left`}></span>
+          <span
+            className={`absolute inset-0 bg-[#161616] w-0 group-hover:w-full transition-all duration-500 ease-in-out z-0 origin-left`}
+          ></span>
         </button>
       </form>
     </div>

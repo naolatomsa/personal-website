@@ -6,7 +6,7 @@ import { faLightbulb, faMoon } from "@fortawesome/free-solid-svg-icons";
 export default function DarkModeToggle() {
   const { isDark, setIsDark } = useTheme();
   return (
-    <button onClick={() => setIsDark(!isDark)} className="p-2 cursor-pointer">
+    <button onClick={() => setIsDark(!isDark)} className="mx-2 cursor-pointer">
       {isDark ? (
         <FontAwesomeIcon icon={faMoon} size="xl" color="black"/>
       ) : (

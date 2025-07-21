@@ -28,12 +28,12 @@ const NavBar = ({ onScrollTo }) => {
     <div
       className={`${
         isDark
-          ? "bg-[#dee1e6] border-b border-gray-400 text-black"
+          ? "bg-gray-300 border-b border-gray-400 text-black"
           : "bg-black text-white border-b border-[#333333]"
       }  w-screen z-50 navbar libertinus-math-regular `}
     >
-      <div className="flex  font-sans py-5 items-center justify-between mx-auto md:w-3/4 w-[90%]">
-        <div className="flex items-center justify-center   cursor-pointer">
+      <div className="flex  font-sans py-5 items-center md:justify-center mx-auto md:w-3/4 w-[90%]">
+        {/* <div className="flex items-center justify-center   cursor-pointer">
           <div className="react-logo">
             <div className="ellipse rotate1" />
             <div className="ellipse rotate2" />
@@ -49,7 +49,7 @@ const NavBar = ({ onScrollTo }) => {
           >
             Naol Atomsa
           </h1>
-        </div>
+        </div> */}
         <div className=" md:flex flex-wrap hidden items-center gap-5 text-[14px] libertinus-math-regular">
           <button
             onClick={() => onScrollTo("home")}
@@ -88,7 +88,7 @@ const NavBar = ({ onScrollTo }) => {
             Contact
           </button>
           <button
-            className={`libertinus-math-regular relative overflow-hidden border dark:bg-orange-700 dark:border-orange-700  px-6 py-2 rounded-full group text-[16px] text-white cursor-pointer font-semibold transition-transform duration-50 active:scale-[0.95] ${
+            className={`libertinus-math-regular relative overflow-hidden border dark:bg-orange-700 dark:border-orange-700  px-6 py-2 rounded-md group text-[16px] text-white cursor-pointer font-semibold transition-transform duration-50 active:scale-[0.95] ${
               isDark ? " hover:text-black" : " hover:text-white"
             }`}
           >
@@ -102,10 +102,12 @@ const NavBar = ({ onScrollTo }) => {
 
         {/* Mobile Menu Button */}
         <div
-          className={`md:hidden flex items-center  libertinus-math-regular ${
+          className={`md:hidden w-full flex items-center justify-between  libertinus-math-regular ${
             isDark ? "text-black" : "text-white"
           }`}
         >
+          <DarkModeToggle />
+
           <Menu
             open={isMobile}
             handler={setIsMobile}
@@ -115,20 +117,20 @@ const NavBar = ({ onScrollTo }) => {
             }}
           >
             <MenuHandler>
-              <button className="text-md border py-1 px-2 rounded-md border-gray-500 text-white dark:bg-orange-700">
+              <button className="text-md  py-1.5 px-3 rounded-md  text-white dark:bg-orange-700">
                 {isMobile ? `Close` : `Menu`}
               </button>
             </MenuHandler>
 
             <MenuList
               id="menu"
-              className="bg-[#21212133] border p-5 border-orange-700 backdrop-blur-2xl rounded-3xl w-full navbar:hidden flex flex-col gap-7 justify-center h-3/4 z-50"
+              className="bg-[#21212133] border p-5 border-orange-700 backdrop-blur-2xl rounded-xl w-full navbar:hidden flex flex-col gap-7 justify-center h-3/4 z-50"
             >
-              <div className="relative w-full">
+              {/* <div className="relative w-full">
                 <div className="absolute right-0 -top-6">
                   <DarkModeToggle />
                 </div>
-              </div>
+              </div> */}
 
               <MenuItem className="col-span-2 hover:bg-transparent justify-self-start focus:bg-transparent active:bg-transparent">
                 <div
@@ -149,7 +151,7 @@ const NavBar = ({ onScrollTo }) => {
                     >
                       <div
                         to={`/contact-us`}
-                        className={`libertinus-math-regular  text-[16px] text-white cursor-pointer  border border-orange-700  font-semibold transition-transform duration-50 active:scale-[0.95] bg-orange-700  px-5 py-2 rounded-full ${
+                        className={`libertinus-math-regular  text-[16px] text-white cursor-pointer  border border-orange-700  font-semibold transition-transform duration-50 active:scale-[0.95] bg-orange-700  px-5 py-2 rounded-md ${
                           isDark ? " hover:text-black" : " hover:text-white"
                         }`}
                       >
@@ -209,7 +211,7 @@ const NavBar = ({ onScrollTo }) => {
 
               <MenuItem className="hover:bg-transparent flex justify-center focus:bg-transparent active:bg-transparent ">
                 <button
-                  className={`libertinus-math-regular  text-[16px] text-white cursor-pointer  border border-orange-700  font-semibold transition-transform duration-50 active:scale-[0.95] bg-orange-700  px-5 py-2 rounded-full ${
+                  className={`libertinus-math-regular  text-[16px] text-white cursor-pointer  border border-orange-700  font-semibold transition-transform duration-50 active:scale-[0.95] bg-orange-700  px-5 py-2 rounded-md ${
                     isDark ? " hover:text-black" : " hover:text-white"
                   }`}
                 >
