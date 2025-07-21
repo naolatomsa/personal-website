@@ -3,8 +3,9 @@
 @import "@fontsource/roboto/400.css"; /* Regular */
 @import "@fontsource/roboto/700.css";
 
-
 @import "tailwindcss";
+
+/* @import "@material-tailwind/react/tailwind.css"; */
 
 :root {
   background: #121212;
@@ -240,3 +241,12 @@ body {
   background-repeat: repeat;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}

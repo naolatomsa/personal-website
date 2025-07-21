@@ -1,8 +1,12 @@
-module.exports = {
-  screens: {
-    small: "480px", // Now @small:hidden will work
-    sm: "640px",
-    md: "768px",
-    // ...
+const withMT = require("@material-tailwind/react/utils/withMT");
+
+module.exports = withMT({
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
   },
-};
+  plugins: [],
+});

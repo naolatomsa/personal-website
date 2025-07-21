@@ -130,8 +130,9 @@ const Testimonials = () => {
         Testimonials
       </h1>
       <h1 className=" md:w-1/2 w-[90%] libertinus-math-regular text-[18px] text-center font-sans">
-        Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa nibh
-        lectus netus in, aliquet donec morbi convallis pretium
+        I believe great work speaks for itself — but hearing from people I've
+        worked with says even more. Here's what some of my clients and
+        collaborators have said.
       </h1>
 
       {/* Testimonials Carousel Container */}
