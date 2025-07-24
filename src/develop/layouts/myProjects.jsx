@@ -114,13 +114,7 @@ const MyProjects = () => {
         </h1>
       </div>
 
-      <div
-        onClick={() => {
-          setIsOpen(true);
-          handleJegol();
-        }}
-        className="md:flex w-[90%] grid  justify-center  gap-20 "
-      >
+      <div className="md:flex w-[90%] grid  justify-center  gap-20 ">
         <div className=" md:w-1/4 h-full rounded-xl overflow-hidden border border-[#7C7C7C1F]/40">
           <div className="relative">
             <img
