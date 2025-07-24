@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useTheme } from "../common/themeProvider";
+import MyModal from "../common/dialog";
 
 // Main App component
 const Testimonials = () => {
@@ -11,41 +12,49 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      name: "John Doe",
-      title: "CEO",
-      image: "https://placehold.co/100x100/0A1B2D/FFFFFF?text=JD", // Placeholder image
+      name: "Nebiyu Daniel",
+      link: "https://www.linkedin.com/in/naol-atomsa-808770215/",
+      title: "UI/UX Designer",
+      image: "https://placehold.co/100x100/0A1B2D/FFFFFF?text=ND", // Placeholder image
       quote:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique amet sed massa nibh lectus netus in, aliquet donec morbi convallis pretium. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique amet sed massa nibh lectus netus in, aliquet donec morbi convallis pretium",
+        "Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique amet sed massa nibh lectus netus in, aliquet donec morbi convallis pretium. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique amet sed massa nibh lectus netus in, aliquet donec morbi convallis pretium",
     },
     {
       id: 2,
-      name: "Jane Smith",
-      title: "Designer",
-      image: "https://placehold.co/100x100/0A1B2D/FFFFFF?text=JS", // Placeholder image
+      name: "Biruk Solomon",
+      link: "https://www.linkedin.com/in/naol-atomsa-808770215/",
+
+      title: "Cyber Security Specialist",
+      image: "https://placehold.co/100x100/0A1B2D/FFFFFF?text=BS", // Placeholder image
       quote:
         "In enim cursus odio accumsan, id leo urna velit neque mattis id tellus arcu condimentum. Augue dictum dolor elementum convallis dignissim malesuada commodo ultrices.",
     },
     {
       id: 3,
-      name: "Peter Jones",
-      title: "Developer",
-      image: "https://placehold.co/100x100/0A1B2D/FFFFFF?text=PJ", // Placeholder image
+      name: "Manuhe .",
+      link: "https://www.linkedin.com/in/naol-atomsa-808770215/",
+
+      title: "MENAS CEO",
+      image: "https://placehold.co/100x100/0A1B2D/FFFFFF?text=Manuhe", // Placeholder image
       quote:
         "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.",
     },
     {
       id: 4,
-      name: "Alice Johnson",
-      title: "Product Manager",
-      image: "https://placehold.co/100x100/0A1B2D/FFFFFF?text=AJ",
+      name: "Dr. Hundaol",
+      link: "https://www.linkedin.com/in/naol-atomsa-808770215/",
+
+      title: "Cyber Security Specialist",
+      image: "https://placehold.co/100x100/0A1B2D/FFFFFF?text=Dr. Hunde",
       quote:
         "This service transformed our workflow. Highly recommend it for anyone looking to optimize their processes and boost productivity significantly.",
     },
     {
       id: 5,
-      name: "Bob Williams",
-      title: "Marketing Specialist",
-      image: "https://placehold.co/100x100/0A1B2D/FFFFFF?text=BW",
+      name: "Zewuudu Jemema",
+      title: "Data Center Specialist",
+      link: "https://www.linkedin.com/in/naol-atomsa-808770215/",
+      image: "https://placehold.co/100x100/0A1B2D/FFFFFF?text=ZJ",
       quote:
         "Outstanding support and an intuitive platform. It's truly a game-changer for digital marketing strategies, providing measurable results.",
     },
@@ -117,6 +126,37 @@ const Testimonials = () => {
 
   const { isDark } = useTheme();
 
+  const [isOpen, setIsOpen] = useState(false);
+  const [socialMedia, setSocialMedia] = useState("");
+  const [pendingLink, setPendingLink] = useState("");
+
+  const [name, setName] = useState("");
+
+  const open = () => {
+    setIsOpen(true);
+  };
+  const close = () => {
+    setIsOpen(false);
+  };
+
+  //linkedin
+
+  const handleOnConfirm = () => {
+    if (!isOpen) {
+      return;
+    }
+
+    if (socialMedia === "Linkedin") {
+      window.open(pendingLink, "_blank");
+    }
+  };
+  const handleClientClick = (link, name) => {
+    setIsOpen(true);
+    setSocialMedia("Linkedin");
+    setName(name);
+    setPendingLink(link);
+  };
+
   return (
     <div
       className={`h-full border-[1px]  ${
@@ -143,6 +183,9 @@ const Testimonials = () => {
         {testimonials.map((testimonial, index) => (
           <div
             key={testimonial.id}
+            onClick={() =>
+              handleClientClick(testimonial.link, testimonial.name)
+            }
             // Use flex-none for fixed width, and responsive widths for visibility of adjacent cards
             // On small screens (sm), full width, on medium (md), half width, on large (lg), third width.
             className={`flex-none w-[90%] md:w-1/2 p-4 snap-center transition-all duration-300 ease-in-out
@@ -161,7 +204,7 @@ const Testimonials = () => {
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-24 h-24 rounded-full object-cover border-4 dark:border-orange-700 shadow-md"
+                  className="w-20 h-20 rounded-full object-cover border-4 dark:border-orange-700 shadow-md"
                   // Fallback for image loading errors
                   onError={(e) => {
                     e.target.onerror = null;
@@ -187,17 +230,32 @@ const Testimonials = () => {
                 </span> */}
               </div>
               {/* Testimonial Author */}
-              <div className="w-full">
+              <button
+                className="w-full cursor-pointer"
+                onClick={() =>
+                  handleClientClick(testimonial.link, testimonial.name)
+                }
+              >
                 <p className="font-bold dark:text-orange-700 text-lg libertinus-math-regular">
                   {testimonial.name}
                 </p>
                 <p className="text-sm text-gray-500 libertinus-math-regular">
                   {testimonial.title}
                 </p>
-              </div>
+              </button>
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="hidden">
+        <MyModal
+          isOpen={isOpen}
+          name={name}
+          socialMedia={socialMedia}
+          onConfirm={() => handleOnConfirm()}
+          close={close}
+        />
       </div>
 
       {/* Custom CSS to hide scrollbar */}
@@ -220,8 +278,8 @@ const Testimonials = () => {
               activeIndex === index
                 ? "dark:bg-orange-700 w-8"
                 : isDark
-                ? "bg-[#7C7C7C1F] bg-opacity-50 "
-                : "bg-[#7C7C7C1F] bg-opacity-50 "
+                ? "bg-[#0A1B2D] bg-opacity-50 "
+                : "bg-[#0A1B2D] bg-opacity-50 "
             }`}
             onClick={() => handleDotClick(index)}
             aria-label={`Go to testimonial ${index + 1}`}

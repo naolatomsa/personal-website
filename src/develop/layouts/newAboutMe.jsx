@@ -28,11 +28,11 @@ const NewAboutMe = () => {
         isDark ? "border-gray-300" : "border-[#222222]"
       }  ${isDark ? "text-black" : "text-white"}`}
     >
-      <div className="flex  flex-col gap-5 items-center justify-center">
+      <div className="flex md:w-3/4 w-[90%] flex-col gap-5 items-center justify-center">
         <h1 className="dark:text-orange-700  text-3xl libertinus-math-regular text-center font-bold">
           Who Am I?
         </h1>
-        <h1 className="md:w-3/4 w-[90%] libertinus-math-regular text-[18px] text-center">
+        <h1 className="  libertinus-math-regular text-[18px] text-center">
           <span>I’m {""}</span>
           <span className="text-orange-700 font-bold">Naol Atomsa, </span>
           <span>a passionate </span>

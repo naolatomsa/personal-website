@@ -128,7 +128,7 @@ function App() {
       </AnimatedSection>
 
       <AnimatedSection reference={servicesRef}>
-        <Services />
+        <Services onScrollTo={scrollToSection} />
       </AnimatedSection>
 
       <AnimatedSection reference={projectsRef}>

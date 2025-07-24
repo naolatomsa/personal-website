@@ -117,6 +117,7 @@ const Home = ({ onScrollTo }) => {
           <div className="hidden">
             <MyModal
               isOpen={isOpen}
+              name={"Naol Atomsa"}
               socialMedia={socialMedia}
               onConfirm={() => handleOnConfirm()}
               close={close}

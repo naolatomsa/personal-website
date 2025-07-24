@@ -46,8 +46,8 @@ export default function SeeMoreDialog({
                 isDark ? "bg-gray-300 " : "bg-[#222222] "
               } p-6 backdrop-blur-2xl duration-300 ease-out data-closed:transform-[scale(95%)] data-closed:opacity-0`}
             >
-              <div className="mb-4 flex justify-end  w-full">
-                <Button className="p-2 text-orange-700" onClick={close}>
+              <div className="mb-4 b flex justify-end  w-full">
+                <Button className="p-2 cursor-pointer text-orange-700" onClick={close}>
                   <FontAwesomeIcon size="2xl" icon={faCircleXmark} />
                 </Button>
               </div>
@@ -77,7 +77,7 @@ export default function SeeMoreDialog({
                   </h2>
                   <button
                     onClick={() => {
-                      window.open(link ,"_blank"  );
+                      window.open(link, "_blank");
                       close();
                     }}
                     className="cursor-pointer underline text-blue-600 text-xs mt-1 mb-2"

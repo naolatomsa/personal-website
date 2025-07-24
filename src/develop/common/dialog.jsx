@@ -2,8 +2,13 @@ import { Button, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { useState, useEffect } from "react";
 import { useTheme } from "./themeProvider";
 
-
-export default function MyModal({ isOpen, onConfirm, socialMedia, close }) {
+export default function MyModal({
+  isOpen,
+  onConfirm,
+  socialMedia,
+  name,
+  close,
+}) {
   const { isDark } = useTheme();
 
   useEffect(() => {
@@ -48,8 +53,12 @@ export default function MyModal({ isOpen, onConfirm, socialMedia, close }) {
                   isDark ? "text-black/80" : "text-white/80"
                 }`}
               >
-                You’re about to open Naol Atomsa’s {socialMedia} profile. This
-                may launch the LinkedIn app or open in a new browser tab.
+                <span>You’re about to open </span>
+                <span className="text-orange-700 font-bold">{name}’s </span>
+                <span>
+                  {socialMedia} profile. This may launch the {socialMedia} app
+                  or open in a new browser tab.
+                </span>
               </p>
               <div className="mt-4 flex justify-end gap-5 items-center">
                 <button
