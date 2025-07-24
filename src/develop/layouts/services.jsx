@@ -2,7 +2,6 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCode,
-  faComputer,
   faMobileScreenButton,
 } from "@fortawesome/free-solid-svg-icons";
 import { useTheme } from "../common/themeProvider";

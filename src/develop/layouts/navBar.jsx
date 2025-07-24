@@ -33,23 +33,6 @@ const NavBar = ({ onScrollTo }) => {
       }  w-screen z-50 navbar libertinus-math-regular `}
     >
       <div className="flex  font-sans py-5 items-center md:justify-center mx-auto md:w-3/4 w-[90%]">
-        {/* <div className="flex items-center justify-center   cursor-pointer">
-          <div className="react-logo">
-            <div className="ellipse rotate1" />
-            <div className="ellipse rotate2" />
-            <div className="ellipse rotate3" />
-            <div className="ellipse rotate4" />
-            <div className="ellipse rotate5" />
-            <div className="ellipse rotate6" />
-            <div className="center-dot" />
-          </div>
-          <h1
-            onClick={() => onScrollTo("home")}
-            className="libertinus-math-regular home-underline"
-          >
-            Naol Atomsa
-          </h1>
-        </div> */}
         <div className=" md:flex flex-wrap hidden items-center gap-5 text-[14px] libertinus-math-regular">
           <button
             onClick={() => onScrollTo("home")}
@@ -126,12 +109,6 @@ const NavBar = ({ onScrollTo }) => {
               id="menu"
               className="bg-[#21212133] border p-5 border-orange-700 backdrop-blur-2xl rounded-xl w-full navbar:hidden flex flex-col gap-7 justify-center h-3/4 z-50"
             >
-              {/* <div className="relative w-full">
-                <div className="absolute right-0 -top-6">
-                  <DarkModeToggle />
-                </div>
-              </div> */}
-
               <MenuItem className="col-span-2 hover:bg-transparent justify-self-start focus:bg-transparent active:bg-transparent">
                 <div
                   className="flex gap-5 justify-center items-center"

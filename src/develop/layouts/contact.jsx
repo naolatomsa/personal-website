@@ -18,7 +18,7 @@ const Contact = () => {
         "service_mwkngbl",
         "template_14s78bs",
         form.current,
-        "6Wz8z9YsESNzyage"
+        "6Wz8z9YsESNzyaged"
       );
 
       !isDark

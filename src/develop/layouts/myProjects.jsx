@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import menas from "../../assets/menas.png";
 import { useTheme } from "../common/themeProvider";
 import menasGroupPhoto from "../../assets/menas.png";
 import jegol from "../../assets/jegol.png";
@@ -115,7 +114,13 @@ const MyProjects = () => {
         </h1>
       </div>
 
-      <div className="md:flex w-[90%] grid  justify-center  gap-20 ">
+      <div
+        onClick={() => {
+          setIsOpen(true);
+          handleJegol();
+        }}
+        className="md:flex w-[90%] grid  justify-center  gap-20 "
+      >
         <div className=" md:w-1/4 h-full rounded-xl overflow-hidden border border-[#7C7C7C1F]/40">
           <div className="relative">
             <img
@@ -150,7 +155,7 @@ const MyProjects = () => {
             <p className=" paragraph mb-6 text-[12px]">
               I was hired by Menas Cyber Solutions to bring their new website to
               life through code. The design and branding were provided by the
-              client — ...
+              client ...
             </p>
             <button
               onClick={() => {
@@ -199,15 +204,7 @@ const MyProjects = () => {
             <p className=" paragraph mb-6 text-[12px]">
               I was hired by Menas Cyber Solutions to bring their new website to
               life through code. The design and branding were provided by the
-              {/* client — my role was to handle the full development of the site
-              based on those designs. I developed the main website using React
-              and TailwindCSS, ensuring it was responsive, performant, and
-              production-ready. For dynamic content like blogs, job posts, and
-              news updates, I implemented Eleventy (11ty) to allow fast,
-              SEO-friendly static generation and easy content management. My
-              focus was on turning their visual assets into a fully functional
-              website — clean code, smooth animations, and scalable structure
-              across all pages. */}
+              ...
             </p>
             <button
               onClick={() => {

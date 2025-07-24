@@ -211,45 +211,6 @@ const Home = ({ onScrollTo }) => {
               } w-0 group-hover:w-full transition-all duration-500 ease-in-out z-0 origin-left`}
             ></span>
           </button>
-          {/* <a
-              rel="noopener noreferrer"
-              onClick={() => handleLinkedInClick()}
-            >
-              <FontAwesomeIcon
-                icon={faLinkedin}
-                className="text-2xl  cursor-pointer"
-              />
-            </a>
-            <a
-              rel="noopener noreferrer"
-              onClick={() => handleGitHubClick()}
-              className="bg-orange-700 flex justify-center items-center rounded-md p-2"
-            >
-              <FontAwesomeIcon
-                icon={faGithub}
-                className="text-2xl cursor-pointer"
-              />
-            </a>
-            <a
-              rel="noopener noreferrer"
-              onClick={() => handleFaceBooknClick()}
-              className="bg-orange-700 flex justify-center items-center rounded-md p-2"
-            >
-              <FontAwesomeIcon
-                icon={faFacebook}
-                className="text-2xl cursor-pointer"
-              />
-            </a>
-            <a
-              rel="noopener noreferrer"
-              onClick={() => handleInstaGramClick()}
-              className="bg-orange-700 flex justify-center items-center rounded-md p-2"
-            >
-              <FontAwesomeIcon
-                icon={faInstagram}
-                className="text-2xl cursor-pointer"
-              />
-            </a> */}
         </div>
       </div>
 

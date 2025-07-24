@@ -3,10 +3,10 @@ import { useTheme } from "../common/themeProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronDown,
+  faCircleArrowDown,
   faGraduationCap,
   faLaptop,
   faStar,
-  faUserLarge,
 } from "@fortawesome/free-solid-svg-icons";
 
 import faReact from "../../assets/reactLogo.svg";
@@ -36,7 +36,9 @@ const NewAboutMe = () => {
           <span>I’m {""}</span>
           <span className="text-orange-700 font-bold">Naol Atomsa, </span>
           <span>a passionate </span>
-          <span className="text-orange-700 font-bold">full-stack software engineer </span>
+          <span className="text-orange-700 font-bold">
+            full-stack software engineer{" "}
+          </span>
 
           <span>
             with a strong interest in machine learning and software development.
@@ -123,7 +125,11 @@ const NewAboutMe = () => {
         >
           <div>
             <h1>Skills</h1>
-            <FontAwesomeIcon size="md" icon={faChevronDown} />
+            <FontAwesomeIcon
+              size="xs"
+              className={`${isDark ? "text-gray-300" : "text-[#141414]"}`}
+              icon={faCircleArrowDown}
+            />
           </div>
         </h1>
 

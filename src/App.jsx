@@ -3,13 +3,15 @@ import { motion, useInView } from "framer-motion";
 import NavBar from "./develop/layouts/navBar";
 import Home from "./develop/layouts/home";
 import { Footer } from "./develop/layouts/footer";
-import { AboutMe } from "./develop/layouts/aboutMe";
 import { Services } from "./develop/layouts/services";
 import MyProjects from "./develop/layouts/myProjects";
 import Testimonials from "./develop/layouts/testimonials";
 import Contact from "./develop/layouts/contact";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleArrowUp } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCircleArrowUp,
+  faCircleChevronUp,
+} from "@fortawesome/free-solid-svg-icons";
 import { BounceLoader } from "react-spinners";
 import { useTheme } from "./develop/common/themeProvider";
 import MouseGlow from "./develop/common/mouseGlow";
@@ -146,11 +148,12 @@ function App() {
       <Footer onScrollTo={scrollToSection} />
 
       {activeSection !== "home" && (
-        <FontAwesomeIcon
-          onClick={() => scrollToSection("home")}
-          className="fixed text-5xl z-50 bottom-0 right-0 md:mb-7 md:mr-10 mb-7 mr-5 dark:text-orange-700 cursor-pointer"
-          icon={faCircleArrowUp}
-        />
+        <button className="fixed text-5xl z-50 bottom-0 right-0 md:mb-7 md:mr-10 mb-7 mr-5 dark:text-orange-700 cursor-pointer">
+          <FontAwesomeIcon
+            onClick={() => scrollToSection("home")}
+            icon={faCircleChevronUp}
+          />
+        </button>
       )}
     </div>
   );
