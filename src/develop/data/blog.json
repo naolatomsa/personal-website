@@ -1,0 +1,322 @@
+[
+    {
+        "id": 1,
+        "title": "Web-Development",
+        "date": "Thursday, July 24, 2025",
+        "content": "Need an app that works seamlessly across Android and iOS? I build fast, functional, and user-friendly mobile applications that deliver real value to users ....",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 2,
+        "title": "Mobile App Development",
+        "date": "Wednesday, July 23, 2025",
+        "content": "Building intuitive and beautiful apps is my craft. Whether it's Android or iOS, I ensure your app runs smoothly and looks great.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 3,
+        "title": "UI/UX Design",
+        "date": "Tuesday, July 22, 2025",
+        "content": "Clean design isn't just aesthetics. I design user experiences that convert and keep users engaged from first tap to final action.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 4,
+        "title": "Backend Architecture",
+        "date": "Monday, July 21, 2025",
+        "content": "Solid backend is the backbone of any digital product. I design scalable APIs and robust architectures that perform under load.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 5,
+        "title": "Flutter Development",
+        "date": "Sunday, July 20, 2025",
+        "content": "Single codebase for both iOS and Android? Flutter is my go-to. I craft performant cross-platform apps in record time.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 6,
+        "title": "Full Stack Engineering",
+        "date": "Saturday, July 19, 2025",
+        "content": "From database design to frontend polish, I deliver complete solutions tailored to your business needs.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 7,
+        "title": "API Integration",
+        "date": "Friday, July 18, 2025",
+        "content": "Need to connect with payment gateways, social platforms, or 3rd party services? I make integrations smooth and secure.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 8,
+        "title": "Progressive Web Apps",
+        "date": "Thursday, July 17, 2025",
+        "content": "PWAs are the future. I create fast, installable web apps that work offline and feel like native apps.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 9,
+        "title": "Firebase Solutions",
+        "date": "Wednesday, July 16, 2025",
+        "content": "Authentication, databases, cloud functions – I leverage Firebase to ship apps faster with less backend overhead.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 10,
+        "title": "React Development",
+        "date": "Tuesday, July 15, 2025",
+        "content": "Building dynamic interfaces with React and Next.js for fast, SEO-friendly experiences across devices.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 11,
+        "title": "DevOps & CI/CD",
+        "date": "Monday, July 14, 2025",
+        "content": "Automated testing, deployment, and versioning pipelines to keep your product stable and fast-moving.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 12,
+        "title": "Database Optimization",
+        "date": "Sunday, July 13, 2025",
+        "content": "Slow queries are app killers. I optimize database performance to ensure fast, scalable systems.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 13,
+        "title": "SEO Optimization",
+        "date": "Saturday, July 12, 2025",
+        "content": "Improve visibility on search engines with clean code, fast load times, and meta strategy.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 14,
+        "title": "E-commerce Development",
+        "date": "Friday, July 11, 2025",
+        "content": "From cart systems to secure checkout, I build tailored solutions for digital commerce success.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 15,
+        "title": "Bug Fixing & Code Audit",
+        "date": "Thursday, July 10, 2025",
+        "content": "Got legacy code or a buggy system? I’ll dive in, clean up, and restore reliability and performance.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 16,
+        "title": "Code Review",
+        "date": "Wednesday, July 9, 2025",
+        "content": "Code quality matters. I provide thorough reviews to ensure scalability, readability, and performance.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 17,
+        "title": "CMS Integration",
+        "date": "Tuesday, July 8, 2025",
+        "content": "Need a dynamic site with easy content updates? I integrate CMS systems like WordPress and Strapi efficiently.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 18,
+        "title": "Tech Consulting",
+        "date": "Monday, July 7, 2025",
+        "content": "Not sure where to start? I guide startups and teams in choosing the right tech and architecture.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 19,
+        "title": "Open Source Contributions",
+        "date": "Sunday, July 6, 2025",
+        "content": "I believe in community-driven software and actively contribute to open source projects in JS and Dart ecosystems.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 20,
+        "title": "Custom Dashboards",
+        "date": "Saturday, July 5, 2025",
+        "content": "Track data and performance in real time with dashboards tailored for your business logic.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 21,
+        "title": "Web-Development",
+        "date": "Thursday, July 24, 2025",
+        "content": "Need an app that works seamlessly across Android and iOS? I build fast, functional, and user-friendly mobile applications that deliver real value to users ....",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 22,
+        "title": "Mobile App Development",
+        "date": "Wednesday, July 23, 2025",
+        "content": "Building intuitive and beautiful apps is my craft. Whether it's Android or iOS, I ensure your app runs smoothly and looks great.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 23,
+        "title": "UI/UX Design",
+        "date": "Tuesday, July 22, 2025",
+        "content": "Clean design isn't just aesthetics. I design user experiences that convert and keep users engaged from first tap to final action.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 24,
+        "title": "Backend Architecture",
+        "date": "Monday, July 21, 2025",
+        "content": "Solid backend is the backbone of any digital product. I design scalable APIs and robust architectures that perform under load.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 25,
+        "title": "Flutter Development",
+        "date": "Sunday, July 20, 2025",
+        "content": "Single codebase for both iOS and Android? Flutter is my go-to. I craft performant cross-platform apps in record time.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 26,
+        "title": "Full Stack Engineering",
+        "date": "Saturday, July 19, 2025",
+        "content": "From database design to frontend polish, I deliver complete solutions tailored to your business needs.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 27,
+        "title": "API Integration",
+        "date": "Friday, July 18, 2025",
+        "content": "Need to connect with payment gateways, social platforms, or 3rd party services? I make integrations smooth and secure.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 28,
+        "title": "Progressive Web Apps",
+        "date": "Thursday, July 17, 2025",
+        "content": "PWAs are the future. I create fast, installable web apps that work offline and feel like native apps.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 29,
+        "title": "Firebase Solutions",
+        "date": "Wednesday, July 16, 2025",
+        "content": "Authentication, databases, cloud functions – I leverage Firebase to ship apps faster with less backend overhead.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 30,
+        "title": "React Development",
+        "date": "Tuesday, July 15, 2025",
+        "content": "Building dynamic interfaces with React and Next.js for fast, SEO-friendly experiences across devices.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 31,
+        "title": "DevOps & CI/CD",
+        "date": "Monday, July 14, 2025",
+        "content": "Automated testing, deployment, and versioning pipelines to keep your product stable and fast-moving.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 32,
+        "title": "Database Optimization",
+        "date": "Sunday, July 13, 2025",
+        "content": "Slow queries are app killers. I optimize database performance to ensure fast, scalable systems.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 33,
+        "title": "SEO Optimization",
+        "date": "Saturday, July 12, 2025",
+        "content": "Improve visibility on search engines with clean code, fast load times, and meta strategy.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 34,
+        "title": "E-commerce Development",
+        "date": "Friday, July 11, 2025",
+        "content": "From cart systems to secure checkout, I build tailored solutions for digital commerce success.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 35,
+        "title": "Bug Fixing & Code Audit",
+        "date": "Thursday, July 10, 2025",
+        "content": "Got legacy code or a buggy system? I’ll dive in, clean up, and restore reliability and performance.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 36,
+        "title": "Code Review",
+        "date": "Wednesday, July 9, 2025",
+        "content": "Code quality matters. I provide thorough reviews to ensure scalability, readability, and performance.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 37,
+        "title": "CMS Integration",
+        "date": "Tuesday, July 8, 2025",
+        "content": "Need a dynamic site with easy content updates? I integrate CMS systems like WordPress and Strapi efficiently.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 38,
+        "title": "Tech Consulting",
+        "date": "Monday, July 7, 2025",
+        "content": "Not sure where to start? I guide startups and teams in choosing the right tech and architecture.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 39,
+        "title": "Open Source Contributions",
+        "date": "Sunday, July 6, 2025",
+        "content": "I believe in community-driven software and actively contribute to open source projects in JS and Dart ecosystems.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    },
+    {
+        "id": 40,
+        "title": "Custom Dashboards",
+        "date": "Saturday, July 5, 2025",
+        "content": "Track data and performance in real time with dashboards tailored for your business logic.",
+        "name": "Naol Atomsa",
+        "profession": "software engineer"
+    }
+]

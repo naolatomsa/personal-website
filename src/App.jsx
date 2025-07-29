@@ -17,6 +17,7 @@ import { useTheme } from "./develop/common/themeProvider";
 import MouseGlow from "./develop/common/mouseGlow";
 import CustomCursor from "./develop/common/customCursor";
 import NewAboutMe from "./develop/layouts/newAboutMe";
+import Blog from "./develop/layouts/blog";
 
 function AnimatedSection({ children, reference }) {
   const inView = useInView(reference, { once: false });
@@ -33,13 +34,15 @@ function AnimatedSection({ children, reference }) {
   );
 }
 
-function App() {
+function App({ isVisible, onClose }) {
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
   const servicesRef = useRef(null);
   const projectsRef = useRef(null);
   const testimonialsRef = useRef(null);
   const contactRef = useRef(null);
+  const blogRef = useRef(null);
+
   const [loading, setLoading] = useState(true);
   const [activeSection, setActiveSection] = useState("home");
   const { isDark } = useTheme();
@@ -58,6 +61,7 @@ function App() {
     projects: projectsRef,
     testimonials: testimonialsRef,
     contact: contactRef,
+    blog: blogRef,
   };
 
   const scrollToSection = (section) => {
@@ -118,32 +122,37 @@ function App() {
       <div className="fixed z-50">
         <NavBar onScrollTo={scrollToSection} />
       </div>
+      <div>
+        <AnimatedSection reference={homeRef}>
+          <Home onScrollTo={scrollToSection} />
+        </AnimatedSection>
 
-      <AnimatedSection reference={homeRef}>
-        <Home onScrollTo={scrollToSection} />
-      </AnimatedSection>
+        <AnimatedSection reference={aboutRef}>
+          <div className="">
+            <NewAboutMe />
+          </div>
+        </AnimatedSection>
 
-      <AnimatedSection reference={aboutRef}>
-        <div className="">
-          <NewAboutMe />
-        </div>
-      </AnimatedSection>
+        <AnimatedSection reference={servicesRef}>
+          <Services onScrollTo={scrollToSection} />
+        </AnimatedSection>
 
-      <AnimatedSection reference={servicesRef}>
-        <Services onScrollTo={scrollToSection} />
-      </AnimatedSection>
+        <AnimatedSection reference={projectsRef}>
+          <MyProjects />
+        </AnimatedSection>
 
-      <AnimatedSection reference={projectsRef}>
-        <MyProjects />
-      </AnimatedSection>
+        <AnimatedSection reference={testimonialsRef}>
+          <Testimonials />
+        </AnimatedSection>
 
-      <AnimatedSection reference={testimonialsRef}>
-        <Testimonials />
-      </AnimatedSection>
+        <AnimatedSection reference={blogRef}>
+          <Blog />
+        </AnimatedSection>
 
-      <AnimatedSection reference={contactRef}>
-        <Contact />
-      </AnimatedSection>
+        <AnimatedSection reference={contactRef}>
+          <Contact />
+        </AnimatedSection>
+      </div>
 
       <Footer onScrollTo={scrollToSection} />
 

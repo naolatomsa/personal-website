@@ -65,6 +65,12 @@ const NavBar = ({ onScrollTo }) => {
             Testimonials
           </button>
           <button
+            onClick={() => onScrollTo("blog")}
+            className="libertinus-math-regular text-[16px] underline-hover-center"
+          >
+            Blog
+          </button>
+          <button
             onClick={() => onScrollTo("contact")}
             className="libertinus-math-regular text-[16px] underline-hover-center"
           >

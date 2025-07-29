@@ -114,6 +114,18 @@ body {
   font-style: normal;
 }
 
+.libertinus-math-regular-blog {
+  font-family: "Libertinus Math", system-ui;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.libertinus-math-regular-blog-title {
+  font-family: "Libertinus Math", system-ui;
+  font-weight: 550;
+  font-style: normal;
+}
+
 @layer components {
   .underline-hover-center {
     @apply cursor-pointer hover:text-gray-500 font-semibold  px-2 py-1 rounded-md relative inline-block text-[18px];
