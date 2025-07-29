@@ -122,7 +122,7 @@ function App({ isVisible, onClose }) {
       <div className="fixed z-50">
         <NavBar onScrollTo={scrollToSection} />
       </div>
-      <div>
+      {/* <div> */}
         <AnimatedSection reference={homeRef}>
           <Home onScrollTo={scrollToSection} />
         </AnimatedSection>
@@ -152,7 +152,7 @@ function App({ isVisible, onClose }) {
         <AnimatedSection reference={contactRef}>
           <Contact />
         </AnimatedSection>
-      </div>
+      {/* </div> */}
 
       <Footer onScrollTo={scrollToSection} />
 

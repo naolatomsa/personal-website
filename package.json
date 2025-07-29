@@ -5,10 +5,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently \"vite\" \"eleventy --watch --serve\"",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "serve": "eleventy --serve",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
@@ -22,6 +23,7 @@
     "@headlessui/react": "^2.2.4",
     "@material-tailwind/react": "^2.1.10",
     "@tailwindcss/vite": "^4.0.15",
+    "concurrently": "^9.2.0",
     "framer-motion": "^12.23.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -32,6 +34,7 @@
     "tailwindcss": "^4.0.15"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
     "@eslint/js": "^9.21.0",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",

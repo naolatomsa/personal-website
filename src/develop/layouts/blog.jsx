@@ -7,8 +7,9 @@ import {
 import { useTheme } from "../common/themeProvider";
 import { faDev } from "@fortawesome/free-brands-svg-icons";
 import Pagination from "../common/pagination";
-import blog from "../data/blog.json";
+// import blog from "../data/blog.json";
 import { useNavigate } from "react-router-dom";
+import blog from "../../../11tyDist/blog.json";
 
 const Blog = () => {
   const { isDark } = useTheme();
@@ -20,7 +21,7 @@ const Blog = () => {
   const dropdownRef = useRef(null);
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(2);
+  const [itemsPerPage, setItemsPerPage] = useState(3);
   const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading] = useState(true);
   const [trendingPost, setTrendingPost] = useState([]);
@@ -42,7 +43,7 @@ const Blog = () => {
     <div
       className={`mx-auto border-[1px]  ${
         isDark ? "border-gray-300" : "border-[#222222]"
-      } md:h-full md:py-10 md:w-3/4 w-[90%] py-5  h-full flex gap-10 flex-col items-center ${
+      } md:h-full md:py-10 md:w-3/4 w-[100%] py-5  h-full flex gap-10 flex-col items-center ${
         isDark ? "text-black" : "text-white"
       }`}
     >
@@ -55,7 +56,7 @@ const Blog = () => {
         {currentPageData &&
           currentPageData.map((blog) => (
             <div
-              key={blog.id}
+              key={blog.slug}
               className={`md:w-full bg-[#7C7C7C1F] bg-opacity-50 rounded-xl grid gap-5  p-5`}
             >
               <div>
@@ -72,7 +73,7 @@ const Blog = () => {
               </div>
               <div>
                 <p className={`libertinus-math-regular-blog text-[15px]`}>
-                  {blog.content}
+                  {blog.preview}
                 </p>
                 <a
                   className={`text-xs underline cursor-pointer ${
@@ -85,17 +86,43 @@ const Blog = () => {
                   Read more. . .
                 </a>
               </div>
-              <div className="flex justify-end">
-                <div>
+              <div className="md:flex  justify-between grid gap-5">
+                <div className="md:hidden flex-col flex  w-full">
                   <h1 className="md:text-[16px] text-md libertinus-math-regular-blog-title  font-bold">
-                    {blog.name}
+                    {blog.author}
                   </h1>
                   <p
                     className={`text-[12px] ${
                       isDark ? "text-black/50" : "text-white/50"
                     }`}
                   >
-                    {blog.profession}
+                    {blog.expertise}
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap md:gap-5 gap-3 md:w-3/4  w-full">
+                  {blog.tags.map((tag, index) => (
+                    <h1
+                      key={index}
+                      className={` bg-transparent border ${
+                        isDark ? "border-gray-400" : "border-[#2C2C2C]  "
+                      }   flex items-center justify-center rounded-md text-xs p-2 libertinus-math-regular text-center font-bold`}
+                    >
+                      {tag}
+                    </h1>
+                  ))}
+                </div>
+
+                <div className="md:flex flex-col hidden">
+                  <h1 className="md:text-[16px] md:w-40 text-md libertinus-math-regular-blog-title  font-bold">
+                    {blog.author}
+                  </h1>
+                  <p
+                    className={`text-[12px] ${
+                      isDark ? "text-black/50" : "text-white/50"
+                    }`}
+                  >
+                    {blog.expertise}
                   </p>
                 </div>
               </div>

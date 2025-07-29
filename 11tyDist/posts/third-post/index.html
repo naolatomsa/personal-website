@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catching EC2 Grouper- no indicators required!</title>
+  <link rel="stylesheet" href="/styles/global.css">
+</head>
+<body class="bg-[#141414] text-[16px] leading-[25px] text-white">
+  <header class="text-white">
+  </header>
+  <main class="">
+    
+<article class="prose prose-invert  w-full break-words overflow-auto">
+  <div><h2>Introduction</h2>
+<p>Through the years of analyzing identity compromises in the cloud, we’ve seen the same attackers pop up regularly, some more frequently than others. Among the more prolific ones we’ve come to know is one we’ve dubbed <strong>“EC2 Grouper”</strong>. Over the past couple of years, we’ve seen this actor in several dozen customer environments, making them one of the more active groups we’ve tracked. This usual suspect is attributed by their penchant for using similar <strong>user agents</strong> and the same <strong>security group naming convention</strong> in their attacks.
+While indicators such as user agents and even security group names can assist in attribution and hunting, we have found them unreliable for comprehensive threat detection. In this blog, we’ll detail tactics associated with EC2 Grouper and how <strong>Lacework FortiCNAPP</strong> can be leveraged to detect this threat, among others. More importantly, we will showcase how this is achieved without relying on actor-specific indicators, which can be transient in nature.</p>
+<h2>Tactics and Techniques</h2>
+<h3>User Agent Patterns</h3>
+<p>EC2 Grouper is characterized by their usage of <strong>AWS tools for PowerShell</strong> to carry out attacks. This is presumed by their <strong>user agent</strong>, which was consistent for a number of years:</p>
+<p>AWSPowerShell.Common/4.1.90.0 .NET_Core/6.0.5 OS/Microsoft_Windows_10.0.17763 PowerShellCore/7.-1 ClientAsync</p>
+<p>In recent attacks, they have updated their UA, which now contains <strong>new versioning and unusual # characters</strong>, possibly as a detection countermeasure:
+AWSPowerShell.Common/4.1.534.0 ua/2.0 .NET_Core#6.0.5 OS/windows#10.0.17763.0 md/ARCH#X64 PowerShellCore/7.-1 cfg/retry-mode#legacy md/ClientAsync</p>
+<h3>Security Group Naming Convention</h3>
+<p>A more consistent indicator has emerged with a <strong>security group naming convention</strong>. Attacks in the cloud often leverage the <code>CreateSecurityGroup</code> API (<strong>T1098</strong>) to enable <strong>remote access and lateral movement</strong> in the cloud environment.
+EC2 Grouper typically attempts to create multiple security groups using a <strong>naming pattern</strong>: <code>ec2group</code> suffixed with <strong>sequential numbers</strong> (1-5). Example request parameters:</p>
+<pre><code class="language-json">{
+  &quot;groupDescription&quot;: &quot;ec2group&quot;,
+   &quot;groupName&quot;: &quot;ec2group&quot;
+}
+{
+  &quot;groupDescription&quot;: &quot;ec2group1&quot;,
+  &quot;groupName&quot;: &quot;ec2group1&quot;
+}
+{
+  &quot;groupDescription&quot;: &quot;ec2group12&quot;,
+  &quot;groupName&quot;: &quot;ec2group12&quot;
+}
+{
+  &quot;groupDescription&quot;: &quot;ec2group123&quot;,
+  &quot;groupName&quot;: &quot;ec2group123&quot;
+}
+{
+  &quot;groupDescription&quot;: &quot;ec2group1234&quot;,
+  &quot;groupName&quot;: &quot;ec2group1234&quot;
+}
+{
+  &quot;groupDescription&quot;: &quot;ec2group12345&quot;,
+  &quot;groupName&quot;: &quot;ec2group12345&quot;
+}
+</code></pre>
+<h3>Attack Execution Flow</h3>
+<p>In all instances of EC2 Grouper attacks, cloud activity appears <strong>largely automated</strong>. The attacker typically follows this sequence:</p>
+<ol>
+<li><strong>DescribeInstanceTypes</strong> – Inventory EC2 types in the environment.</li>
+<li><strong>DescribeRegions</strong> – Retrieve available regions.</li>
+<li><strong>Iterate through each region</strong>:
+<ul>
+<li><code>DescribeVpcs</code> (<strong>T1580</strong>) – Request information about VPCs.</li>
+<li><code>CreateSecurityGroup</code> (<strong>T1098 &amp; T1021</strong>) – Create a new security group <code>ec2group</code>.</li>
+<li><code>DescribeSecurityGroups</code> – Query available security groups.</li>
+<li><code>DescribeAccountAttributes</code> (<strong>T1580</strong>) – Acquire account attributes (quotas, limits).</li>
+<li><code>GetServiceQuota</code> (<strong>T1580</strong>) – Identify resource limits.</li>
+<li><code>DescribeInstances</code> (<strong>T1580</strong>) – Gather details on running EC2 instances.</li>
+<li><code>RunInstances</code> (<strong>T1496</strong>) – Attempt to launch new EC2 instances using <code>ec2group</code>.</li>
+</ul>
+</li>
+</ol>
+<p>Interestingly, <strong>EC2 Grouper does not call <code>AuthorizeSecurityGroupIngress</code></strong>, which is required to configure inbound access. Instead, they often use:</p>
+<ul>
+<li><code>CreateInternetGateway</code></li>
+<li><code>CreateVpc</code></li>
+</ul>
+<p>These actions suggest a focus on <strong>resource hijacking</strong> (<strong>T1496</strong>), but their exact objectives remain <strong>unconfirmed</strong>.</p>
+<h2>Detection</h2>
+<h3>Compromised Credentials</h3>
+<p>In every attack using <strong>valid credentials</strong>, the credentials <strong>must originate from somewhere</strong>. A <strong>common source</strong> remains <strong>code repositories</strong>, where developers mistakenly commit cloud access keys to <strong>public repositories</strong>. Once exposed, these credentials are quickly exploited by <strong>attackers and secret scanners</strong> alike.</p>
+<h3>Secret Scanning Services</h3>
+<p>Given the popularity of <strong>leaked credentials</strong>, it is prudent to <strong>monitor secret scanning services</strong> such as:</p>
+<ul>
+<li><strong>GitGuardian</strong></li>
+<li><strong>GitHub’s secret scanning service</strong></li>
+</ul>
+<p>These services can help detect exposed credentials <strong>before attackers use them</strong>.</p>
+<h3>Composite Alerting Approach</h3>
+<p>Since <strong>credential exposure alone does not confirm a compromise</strong>, we correlate signals to <strong>reduce false positives</strong>:</p>
+<ul>
+<li><strong>Monitor specific APIs</strong> frequently used in attacks.</li>
+<li>Use <strong>TDiscover</strong> (open-source project) to map attack techniques.</li>
+<li><strong>Detect anomalies</strong> indicative of reconnaissance or privilege escalation.</li>
+</ul>
+<p>By leveraging these signals, we <strong>increase detection accuracy</strong> beyond simple <strong>actor-specific indicators</strong>.</p>
+<h2>Conclusion</h2>
+<p>Detecting <strong>illicit usage of valid credentials in the cloud</strong> is a <strong>nuanced challenge</strong>. Most cloud attacks involve <strong>compromised credentials</strong>, making detection <strong>difficult</strong>.</p>
+<p>While EC2 Grouper has unique attack patterns, <strong>many attackers do not</strong>. Thus, <strong>correlating weak signals</strong>—such as API sequences and environmental anomalies—provides <strong>higher detection accuracy</strong>.</p>
+<p>By implementing a <strong>composite alerting strategy</strong>, organizations can significantly improve <strong>threat detection and response</strong> against cloud-based attackers.</p>
+</div>
+</article>
+
+
+  </main>
+</body>
+</html>

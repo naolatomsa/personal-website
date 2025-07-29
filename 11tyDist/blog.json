@@ -1,0 +1,505 @@
+[
+  {
+    "slug": "third-post",
+    "url": "/posts/third-post/",
+    "title": "Catching EC2 Grouper- no indicators required!",
+    "author": "naol",
+    "categories": "threat Development",
+    "date": "2025-07-29T12:29:54.304Z",
+    "tags": [],
+    "expertise": "Not specified",
+    "preview": "Through the years of analyzing identity compromises in the cloud, we’ve seen the same attackers pop up regularly, some more...",
+    "markdown": "\n## Introduction\n\nThrough the years of analyzing identity compromises in the cloud, we’ve seen the same attackers pop up regularly, some more frequently than others. Among the more prolific ones we’ve come to know is one we’ve dubbed **“EC2 Grouper”**. Over the past couple of years, we’ve seen this actor in several dozen customer environments, making them one of the more active groups we’ve tracked. This usual suspect is attributed by their penchant for using similar **user agents** and the same **security group naming convention** in their attacks.\nWhile indicators such as user agents and even security group names can assist in attribution and hunting, we have found them unreliable for comprehensive threat detection. In this blog, we’ll detail tactics associated with EC2 Grouper and how **Lacework FortiCNAPP** can be leveraged to detect this threat, among others. More importantly, we will showcase how this is achieved without relying on actor-specific indicators, which can be transient in nature.\n\n## Tactics and Techniques\n\n### User Agent Patterns\n\nEC2 Grouper is characterized by their usage of **AWS tools for PowerShell** to carry out attacks. This is presumed by their **user agent**, which was consistent for a number of years:\n\nAWSPowerShell.Common/4.1.90.0 .NET_Core/6.0.5 OS/Microsoft_Windows_10.0.17763 PowerShellCore/7.-1 ClientAsync\n\nIn recent attacks, they have updated their UA, which now contains **new versioning and unusual # characters**, possibly as a detection countermeasure:\nAWSPowerShell.Common/4.1.534.0 ua/2.0 .NET_Core#6.0.5 OS/windows#10.0.17763.0 md/ARCH#X64 PowerShellCore/7.-1 cfg/retry-mode#legacy md/ClientAsync\n\n### Security Group Naming Convention\n\nA more consistent indicator has emerged with a **security group naming convention**. Attacks in the cloud often leverage the `CreateSecurityGroup` API (**T1098**) to enable **remote access and lateral movement** in the cloud environment.\nEC2 Grouper typically attempts to create multiple security groups using a **naming pattern**: `ec2group` suffixed with **sequential numbers** (1-5). Example request parameters:\n\n```json\n{\n  \"groupDescription\": \"ec2group\",\n   \"groupName\": \"ec2group\"\n}\n{\n  \"groupDescription\": \"ec2group1\",\n  \"groupName\": \"ec2group1\"\n}\n{\n  \"groupDescription\": \"ec2group12\",\n  \"groupName\": \"ec2group12\"\n}\n{\n  \"groupDescription\": \"ec2group123\",\n  \"groupName\": \"ec2group123\"\n}\n{\n  \"groupDescription\": \"ec2group1234\",\n  \"groupName\": \"ec2group1234\"\n}\n{\n  \"groupDescription\": \"ec2group12345\",\n  \"groupName\": \"ec2group12345\"\n}\n```\n\n### Attack Execution Flow\n\nIn all instances of EC2 Grouper attacks, cloud activity appears **largely automated**. The attacker typically follows this sequence:\n\n1. **DescribeInstanceTypes** – Inventory EC2 types in the environment.\n2. **DescribeRegions** – Retrieve available regions.\n3. **Iterate through each region**:\n   - `DescribeVpcs` (**T1580**) – Request information about VPCs.\n   - `CreateSecurityGroup` (**T1098 & T1021**) – Create a new security group `ec2group`.\n   - `DescribeSecurityGroups` – Query available security groups.\n   - `DescribeAccountAttributes` (**T1580**) – Acquire account attributes (quotas, limits).\n   - `GetServiceQuota` (**T1580**) – Identify resource limits.\n   - `DescribeInstances` (**T1580**) – Gather details on running EC2 instances.\n   - `RunInstances` (**T1496**) – Attempt to launch new EC2 instances using `ec2group`.\n\nInterestingly, **EC2 Grouper does not call `AuthorizeSecurityGroupIngress`**, which is required to configure inbound access. Instead, they often use:\n\n- `CreateInternetGateway`\n- `CreateVpc`\n\nThese actions suggest a focus on **resource hijacking** (**T1496**), but their exact objectives remain **unconfirmed**.\n\n## Detection\n\n### Compromised Credentials\n\nIn every attack using **valid credentials**, the credentials **must originate from somewhere**. A **common source** remains **code repositories**, where developers mistakenly commit cloud access keys to **public repositories**. Once exposed, these credentials are quickly exploited by **attackers and secret scanners** alike.\n\n### Secret Scanning Services\n\nGiven the popularity of **leaked credentials**, it is prudent to **monitor secret scanning services** such as:\n\n- **GitGuardian**\n- **GitHub’s secret scanning service**\n\nThese services can help detect exposed credentials **before attackers use them**.\n\n### Composite Alerting Approach\n\nSince **credential exposure alone does not confirm a compromise**, we correlate signals to **reduce false positives**:\n\n- **Monitor specific APIs** frequently used in attacks.\n- Use **TDiscover** (open-source project) to map attack techniques.\n- **Detect anomalies** indicative of reconnaissance or privilege escalation.\n\nBy leveraging these signals, we **increase detection accuracy** beyond simple **actor-specific indicators**.\n\n## Conclusion\n\nDetecting **illicit usage of valid credentials in the cloud** is a **nuanced challenge**. Most cloud attacks involve **compromised credentials**, making detection **difficult**.\n\nWhile EC2 Grouper has unique attack patterns, **many attackers do not**. Thus, **correlating weak signals**—such as API sequences and environmental anomalies—provides **higher detection accuracy**.\n\nBy implementing a **composite alerting strategy**, organizations can significantly improve **threat detection and response** against cloud-based attackers.\n",
+    "relatedPosts": []
+  },
+  {
+    "slug": "today",
+    "url": "/posts/today/",
+    "title": "today",
+    "author": "Unknown Author",
+    "categories": "unknown category",
+    "date": "2025-07-29T12:29:54.304Z",
+    "tags": [
+      "AWS",
+      "Amazon",
+      "eee",
+      "bew",
+      "dskjdfk"
+    ],
+    "expertise": "Sr Security Researcher",
+    "preview": "This using **** with **React and Vite**....",
+    "markdown": "\nThis using **** with **React and Vite**.\n",
+    "relatedPosts": [
+      {
+        "preview": "This using **** with **React and Vite**....",
+        "slug": "test",
+        "url": "/posts/test/",
+        "title": "test",
+        "tags": [
+          "AWS",
+          "Amazon",
+          "eee",
+          "bew",
+          "dskjdfk"
+        ]
+      },
+      {
+        "preview": "This is my first post using **Eleventy** with **React and Vite**....",
+        "slug": "laste",
+        "url": "/posts/laste/",
+        "title": "last",
+        "tags": [
+          "AWS",
+          "Amazon",
+          "eee",
+          "bew",
+          "dskjdfk"
+        ]
+      },
+      {
+        "preview": "This is my first post using **Eleventy** with **React and Vite**....",
+        "slug": "lasttest",
+        "url": "/posts/lasttest/",
+        "title": "last test",
+        "tags": [
+          "AWS"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "post1",
+    "url": "/posts/post1/",
+    "title": "My First Blog Post",
+    "author": "Unknown Author",
+    "categories": "unknown category",
+    "date": "2025-07-29T12:29:54.303Z",
+    "tags": [],
+    "expertise": "Not specified",
+    "preview": "This is my first post using **Eleventy** with **React and Vite**....",
+    "markdown": "\nThis is my first post using **Eleventy** with **React and Vite**.\n",
+    "relatedPosts": []
+  },
+  {
+    "slug": "second-post",
+    "url": "/posts/second-post/",
+    "title": "My second Blog Post",
+    "author": "Unknown Author",
+    "categories": "unknown category",
+    "date": "2025-07-29T12:29:54.303Z",
+    "tags": [],
+    "expertise": "Not specified",
+    "preview": "This is my first post using **Eleventy** with **React and Vite**....",
+    "markdown": "\nThis is my first post using **Eleventy** with **React and Vite**.\n",
+    "relatedPosts": []
+  },
+  {
+    "slug": "test",
+    "url": "/posts/test/",
+    "title": "test",
+    "author": "Unknown Author",
+    "categories": "unknown category",
+    "date": "2025-07-29T12:29:54.303Z",
+    "tags": [
+      "AWS",
+      "Amazon",
+      "eee",
+      "bew",
+      "dskjdfk"
+    ],
+    "expertise": "Sr Security Researcher",
+    "preview": "This using **** with **React and Vite**....",
+    "markdown": "\nThis using **** with **React and Vite**.\n",
+    "relatedPosts": [
+      {
+        "preview": "This using **** with **React and Vite**....",
+        "slug": "today",
+        "url": "/posts/today/",
+        "title": "today",
+        "tags": [
+          "AWS",
+          "Amazon",
+          "eee",
+          "bew",
+          "dskjdfk"
+        ]
+      },
+      {
+        "preview": "This is my first post using **Eleventy** with **React and Vite**....",
+        "slug": "laste",
+        "url": "/posts/laste/",
+        "title": "last",
+        "tags": [
+          "AWS",
+          "Amazon",
+          "eee",
+          "bew",
+          "dskjdfk"
+        ]
+      },
+      {
+        "preview": "This is my first post using **Eleventy** with **React and Vite**....",
+        "slug": "lasttest",
+        "url": "/posts/lasttest/",
+        "title": "last test",
+        "tags": [
+          "AWS"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "laste",
+    "url": "/posts/laste/",
+    "title": "last",
+    "author": "Unknown Author",
+    "categories": "unknown category",
+    "date": "2025-07-29T12:29:54.301Z",
+    "tags": [
+      "AWS",
+      "Amazon",
+      "eee",
+      "bew",
+      "dskjdfk"
+    ],
+    "expertise": "Sr Security Researcher",
+    "preview": "This is my first post using **Eleventy** with **React and Vite**....",
+    "markdown": "\nThis is my first post using **Eleventy** with **React and Vite**.\n",
+    "relatedPosts": [
+      {
+        "preview": "This using **** with **React and Vite**....",
+        "slug": "today",
+        "url": "/posts/today/",
+        "title": "today",
+        "tags": [
+          "AWS",
+          "Amazon",
+          "eee",
+          "bew",
+          "dskjdfk"
+        ]
+      },
+      {
+        "preview": "This using **** with **React and Vite**....",
+        "slug": "test",
+        "url": "/posts/test/",
+        "title": "test",
+        "tags": [
+          "AWS",
+          "Amazon",
+          "eee",
+          "bew",
+          "dskjdfk"
+        ]
+      },
+      {
+        "preview": "This is my first post using **Eleventy** with **React and Vite**....",
+        "slug": "lasttest",
+        "url": "/posts/lasttest/",
+        "title": "last test",
+        "tags": [
+          "AWS"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "lasttest",
+    "url": "/posts/lasttest/",
+    "title": "last test",
+    "author": "Unknown Author",
+    "categories": "unknown category",
+    "date": "2025-07-29T12:29:54.301Z",
+    "tags": [
+      "AWS"
+    ],
+    "expertise": "Sr Security Researcher",
+    "preview": "This is my first post using **Eleventy** with **React and Vite**....",
+    "markdown": "\nThis is my first post using **Eleventy** with **React and Vite**.\n",
+    "relatedPosts": [
+      {
+        "preview": "This using **** with **React and Vite**....",
+        "slug": "today",
+        "url": "/posts/today/",
+        "title": "today",
+        "tags": [
+          "AWS",
+          "Amazon",
+          "eee",
+          "bew",
+          "dskjdfk"
+        ]
+      },
+      {
+        "preview": "This using **** with **React and Vite**....",
+        "slug": "test",
+        "url": "/posts/test/",
+        "title": "test",
+        "tags": [
+          "AWS",
+          "Amazon",
+          "eee",
+          "bew",
+          "dskjdfk"
+        ]
+      },
+      {
+        "preview": "This is my first post using **Eleventy** with **React and Vite**....",
+        "slug": "laste",
+        "url": "/posts/laste/",
+        "title": "last",
+        "tags": [
+          "AWS",
+          "Amazon",
+          "eee",
+          "bew",
+          "dskjdfk"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "hello",
+    "url": "/posts/hello/",
+    "title": "hello",
+    "author": "naol",
+    "categories": "threat Development",
+    "date": "2025-07-29T12:29:54.296Z",
+    "tags": [
+      "Threat Research",
+      "Amazon",
+      "eee"
+    ],
+    "expertise": "Not specified",
+    "preview": "Welcome to my blog! Here’s an online image of a **beautiful landscape**: ![Beautiful Landscape](https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=800&q=60) This is an example **Markdown** post...",
+    "markdown": "\n### 🌍 My Blog Post with an Image\n\nWelcome to my blog! Here’s an online image of a **beautiful landscape**:\n\n![Beautiful Landscape](https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=800&q=60)\n\nThis is an example **Markdown** post that includes an image hosted online.\n\n## 🚀 Python Code Example\n\n```python\nprint(\"Hello, Markdown with Images!\")\n```\n\n`\n",
+    "relatedPosts": [
+      {
+        "preview": "This using **** with **React and Vite**....",
+        "slug": "today",
+        "url": "/posts/today/",
+        "title": "today",
+        "tags": [
+          "AWS",
+          "Amazon",
+          "eee",
+          "bew",
+          "dskjdfk"
+        ]
+      },
+      {
+        "preview": "This using **** with **React and Vite**....",
+        "slug": "test",
+        "url": "/posts/test/",
+        "title": "test",
+        "tags": [
+          "AWS",
+          "Amazon",
+          "eee",
+          "bew",
+          "dskjdfk"
+        ]
+      },
+      {
+        "preview": "This is my first post using **Eleventy** with **React and Vite**....",
+        "slug": "laste",
+        "url": "/posts/laste/",
+        "title": "last",
+        "tags": [
+          "AWS",
+          "Amazon",
+          "eee",
+          "bew",
+          "dskjdfk"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "image",
+    "url": "/posts/image/",
+    "title": "Image",
+    "author": "naol",
+    "categories": "threat Development",
+    "date": "2025-07-29T12:29:54.296Z",
+    "tags": [],
+    "expertise": "Not specified",
+    "preview": "Welcome to my blog! Here’s an online image of a **beautiful landscape**: ![Beautiful Landscape](https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=800&q=60) This is an example **Markdown** post...",
+    "markdown": "\n### 🌍 My Blog Post with an Image\n\nWelcome to my blog! Here’s an online image of a **beautiful landscape**:\n\n![Beautiful Landscape](https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=800&q=60)\n\nThis is an example **Markdown** post that includes an image hosted online.\n\n\n## 🚀 Python Code Example\n```python\nprint(\"Hello, Markdown with Images!\")\n",
+    "relatedPosts": []
+  },
+  {
+    "slug": "fourth-post",
+    "url": "/posts/fourth-post/",
+    "title": "Sum of Two Numbers in Python",
+    "author": "naol",
+    "categories": "threat Development",
+    "date": "2025-07-29T12:29:54.295Z",
+    "tags": [
+      "Cloud Security",
+      "Amazon"
+    ],
+    "expertise": "Not specified",
+    "preview": "This is a simple Python script that takes two numbers as input and calculates their sum. def add_numbers(a, b): ...",
+    "markdown": "\n# Sum of Two Numbers in Python 🐍\n\nThis is a simple Python script that takes two numbers as input and calculates their sum.\n\n\n## 🔹 **Python Code**\n```python\n# Function to add two numbers\ndef add_numbers(a, b):\n    return a + b\n\n# Input from the user\nnum1 = float(input(\"Enter first number: \"))\nnum2 = float(input(\"Enter second number: \"))\n\n# Calculate sum\nresult = add_numbers(num1, num2)\n\n# Display the result\nprint(f\"The sum of {num1} and {num2} is {result}\")\n\n\n",
+    "relatedPosts": [
+      {
+        "preview": "This using **** with **React and Vite**....",
+        "slug": "today",
+        "url": "/posts/today/",
+        "title": "today",
+        "tags": [
+          "AWS",
+          "Amazon",
+          "eee",
+          "bew",
+          "dskjdfk"
+        ]
+      },
+      {
+        "preview": "This using **** with **React and Vite**....",
+        "slug": "test",
+        "url": "/posts/test/",
+        "title": "test",
+        "tags": [
+          "AWS",
+          "Amazon",
+          "eee",
+          "bew",
+          "dskjdfk"
+        ]
+      },
+      {
+        "preview": "This is my first post using **Eleventy** with **React and Vite**....",
+        "slug": "laste",
+        "url": "/posts/laste/",
+        "title": "last",
+        "tags": [
+          "AWS",
+          "Amazon",
+          "eee",
+          "bew",
+          "dskjdfk"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "first-post",
+    "url": "/posts/first-post/",
+    "title": "My First Blog Post",
+    "author": "Unknown Author",
+    "categories": "unknown category",
+    "date": "2025-07-29T12:29:54.293Z",
+    "tags": [
+      "AWS",
+      "Amazon",
+      "eee",
+      "bew",
+      "dskjdfk"
+    ],
+    "expertise": "Sr Security Researcher",
+    "preview": "This is my first post using **Eleventy** with **React and Vite**....",
+    "markdown": "\nThis is my first post using **Eleventy** with **React and Vite**.\n",
+    "relatedPosts": [
+      {
+        "preview": "This using **** with **React and Vite**....",
+        "slug": "today",
+        "url": "/posts/today/",
+        "title": "today",
+        "tags": [
+          "AWS",
+          "Amazon",
+          "eee",
+          "bew",
+          "dskjdfk"
+        ]
+      },
+      {
+        "preview": "This using **** with **React and Vite**....",
+        "slug": "test",
+        "url": "/posts/test/",
+        "title": "test",
+        "tags": [
+          "AWS",
+          "Amazon",
+          "eee",
+          "bew",
+          "dskjdfk"
+        ]
+      },
+      {
+        "preview": "This is my first post using **Eleventy** with **React and Vite**....",
+        "slug": "laste",
+        "url": "/posts/laste/",
+        "title": "last",
+        "tags": [
+          "AWS",
+          "Amazon",
+          "eee",
+          "bew",
+          "dskjdfk"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "big",
+    "url": "/posts/big/",
+    "title": "ff test",
+    "author": "Unknown Author",
+    "categories": "unknown category",
+    "date": "2025-07-29T12:29:54.291Z",
+    "tags": [
+      "AWS",
+      "Amazon",
+      "eee",
+      "bew",
+      "dskjdfk"
+    ],
+    "expertise": "Sr Security Researcher",
+    "preview": "This is my first post using **Eleventy** with **React and Vite**....",
+    "markdown": "\nThis is my first post using **Eleventy** with **React and Vite**.\n",
+    "relatedPosts": [
+      {
+        "preview": "This using **** with **React and Vite**....",
+        "slug": "today",
+        "url": "/posts/today/",
+        "title": "today",
+        "tags": [
+          "AWS",
+          "Amazon",
+          "eee",
+          "bew",
+          "dskjdfk"
+        ]
+      },
+      {
+        "preview": "This using **** with **React and Vite**....",
+        "slug": "test",
+        "url": "/posts/test/",
+        "title": "test",
+        "tags": [
+          "AWS",
+          "Amazon",
+          "eee",
+          "bew",
+          "dskjdfk"
+        ]
+      },
+      {
+        "preview": "This is my first post using **Eleventy** with **React and Vite**....",
+        "slug": "laste",
+        "url": "/posts/laste/",
+        "title": "last",
+        "tags": [
+          "AWS",
+          "Amazon",
+          "eee",
+          "bew",
+          "dskjdfk"
+        ]
+      }
+    ]
+  }
+]
