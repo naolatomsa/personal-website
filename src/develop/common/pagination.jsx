@@ -34,7 +34,7 @@ const Pagination = ({ totalPages, currentPage, onPageChange }) => {
           className={`rotate-180 px-3 py-2 rounded-md flex items-center gap-2 normal-case shadow-none ${
             currentPage === 1
               ? "cursor-not-allowed opacity-40 bg-transparent"
-              : "hover:cursor-pointer hover:bg-[#2C2C2C] bg-transparent"
+              : "hover:cursor-pointer  bg-transparent"
           }`}
           aria-label="Previous"
           disabled={currentPage === 1}
@@ -47,7 +47,9 @@ const Pagination = ({ totalPages, currentPage, onPageChange }) => {
 
         {/* Only Current Page */}
         <h1
-          className={` bg-transparent border ${isDark?'border-gray-400':'border-[#2C2C2C]  '} w-10 h-10  flex items-center justify-center rounded-full text-xl libertinus-math-regular text-center font-bold`}
+          className={` bg-transparent border ${
+            isDark ? "border-gray-400" : "border-[#2C2C2C]  "
+          } w-10 h-10  flex items-center justify-center rounded-full text-xl libertinus-math-regular text-center font-bold`}
         >
           {currentPage}
         </h1>
@@ -58,7 +60,7 @@ const Pagination = ({ totalPages, currentPage, onPageChange }) => {
           className={`rotate-180 px-3 py-2 rounded-md flex items-center gap-2 normal-case shadow-none ${
             currentPage === totalPages
               ? "cursor-not-allowed opacity-40 bg-transparent"
-              : "hover:cursor-pointer hover:bg-[#2C2C2C] bg-transparent"
+              : "hover:cursor-pointer  bg-transparent"
           }`}
           aria-label="Next"
           disabled={currentPage === totalPages}

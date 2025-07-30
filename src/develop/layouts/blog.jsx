@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 import {
   faCode,
   faMobileScreenButton,
@@ -11,7 +12,7 @@ import Pagination from "../common/pagination";
 import { useNavigate } from "react-router-dom";
 import blog from "../../../11tyDist/blog.json";
 
-const Blog = () => {
+const Blog = ({ onOpen }) => {
   const { isDark } = useTheme();
   const [posts, setPosts] = useState([]);
   const [tags, setTags] = useState([]);
@@ -21,7 +22,7 @@ const Blog = () => {
   const dropdownRef = useRef(null);
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(3);
+  const [itemsPerPage, setItemsPerPage] = useState(2);
   const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading] = useState(true);
   const [trendingPost, setTrendingPost] = useState([]);
@@ -52,15 +53,15 @@ const Blog = () => {
           Blog
         </h1>
       </div>
-      <div className="md:grid flex-col md:w-3/4 w-[90%] grid justify-center gap-10 items-center">
+      <div className="md:grid flex-col md:w-[75vw] w-[90%] grid justify-center gap-10 items-center">
         {currentPageData &&
           currentPageData.map((blog) => (
             <div
               key={blog.slug}
-              className={`md:w-full bg-[#7C7C7C1F] bg-opacity-50 rounded-xl grid gap-5  p-5`}
+              className={`md:w-[60vw] bg-[#7C7C7C1F] bg-opacity-50 rounded-xl grid gap-5  p-5`}
             >
               <div>
-                <h1 className="md:text-[22px] text-md libertinus-math-regular-blog-title  font-bold">
+                <h1 className="md:text-[22px] text-2xl libertinus-math-regular-blog-title  font-bold">
                   {blog.title}
                 </h1>
                 <p
@@ -68,23 +69,24 @@ const Blog = () => {
                     isDark ? "text-black/50" : "text-white/50"
                   }`}
                 >
-                  {blog.date}
+                  {new Date(blog.date).toLocaleDateString("en-US", {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric",
+                  })}
                 </p>
               </div>
               <div>
                 <p className={`libertinus-math-regular-blog text-[15px]`}>
                   {blog.preview}
                 </p>
-                <a
-                  className={`text-xs underline cursor-pointer ${
-                    isDark ? "text-blue-500" : "text-blue-500"
-                  }`}
-                  onClick={() =>
-                    navigate("/personal-website/details", { state: blog })
-                  }
+                <button
+                  type="button"
+                  onClick={() => onOpen(blog)}
+                  className="text-xs underline cursor-pointer text-blue-500"
                 >
-                  Read more. . .
-                </a>
+                  Read more...
+                </button>
               </div>
               <div className="md:flex  justify-between grid gap-5">
                 <div className="md:hidden flex-col flex  w-full">
@@ -100,13 +102,20 @@ const Blog = () => {
                   </p>
                 </div>
 
-                <div className="flex flex-wrap md:gap-5 gap-3 md:w-3/4  w-full">
+                <div
+                  className={`flex flex-wrap md:gap-5 gap-3  rounded-md  bg-[#7C7C7C1F]
+                   ${
+                     blog?.tags?.length
+                       ? isDark
+                         ? "bg-white/50"
+                         : "bg-black/50"
+                       : "bg-transparent"
+                   }  `}
+                >
                   {blog.tags.map((tag, index) => (
                     <h1
                       key={index}
-                      className={` bg-transparent border ${
-                        isDark ? "border-gray-400" : "border-[#2C2C2C]  "
-                      }   flex items-center justify-center rounded-md text-xs p-2 libertinus-math-regular text-center font-bold`}
+                      className={`   flex items-center justify-center  text-xs p-2 libertinus-math-regular text-center font-bold`}
                     >
                       {tag}
                     </h1>

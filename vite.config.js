@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: "/personal-website",
   server: {
-    // host: "192.168.43.18",
+    host: "192.168.43.18",
     // host: "192.168.8.154",
     // host:'192.168.8.106',
     // port: 3000,

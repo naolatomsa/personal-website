@@ -18,6 +18,8 @@ import MouseGlow from "./develop/common/mouseGlow";
 import CustomCursor from "./develop/common/customCursor";
 import NewAboutMe from "./develop/layouts/newAboutMe";
 import Blog from "./develop/layouts/blog";
+import BlogContent from "./develop/layouts/blogContent";
+import BlogFullContent from "./develop/layouts/blogContent";
 
 function AnimatedSection({ children, reference }) {
   const inView = useInView(reference, { once: false });
@@ -94,6 +96,19 @@ function App({ isVisible, onClose }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const [selectedBlog, setSelectedBlog] = useState(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const openBlog = (blog) => {
+    setSelectedBlog(blog); // blog should contain slug, title, author, date, markdown, tags, relatedPosts...
+    setIsFullscreen(false);
+  };
+
+  const closeBlog = () => {
+    setSelectedBlog(null);
+    setIsFullscreen(false);
+  };
+
   return (
     <div
       className={`flex flex-col w-full gap-20 bg-transparent ${
@@ -122,37 +137,45 @@ function App({ isVisible, onClose }) {
       <div className="fixed z-50">
         <NavBar onScrollTo={scrollToSection} />
       </div>
-      {/* <div> */}
-        <AnimatedSection reference={homeRef}>
-          <Home onScrollTo={scrollToSection} />
-        </AnimatedSection>
 
-        <AnimatedSection reference={aboutRef}>
-          <div className="">
-            <NewAboutMe />
-          </div>
-        </AnimatedSection>
+      <AnimatedSection reference={homeRef}>
+        <Home onScrollTo={scrollToSection} />
+      </AnimatedSection>
 
-        <AnimatedSection reference={servicesRef}>
-          <Services onScrollTo={scrollToSection} />
-        </AnimatedSection>
+      <AnimatedSection reference={aboutRef}>
+        <div className="">
+          <NewAboutMe />
+        </div>
+      </AnimatedSection>
 
-        <AnimatedSection reference={projectsRef}>
-          <MyProjects />
-        </AnimatedSection>
+      <AnimatedSection reference={servicesRef}>
+        <Services onScrollTo={scrollToSection} />
+      </AnimatedSection>
 
-        <AnimatedSection reference={testimonialsRef}>
-          <Testimonials />
-        </AnimatedSection>
+      <AnimatedSection reference={projectsRef}>
+        <MyProjects />
+      </AnimatedSection>
 
-        <AnimatedSection reference={blogRef}>
-          <Blog />
-        </AnimatedSection>
+      <AnimatedSection reference={testimonialsRef}>
+        <Testimonials />
+      </AnimatedSection>
 
-        <AnimatedSection reference={contactRef}>
-          <Contact />
-        </AnimatedSection>
-      {/* </div> */}
+      <AnimatedSection reference={blogRef}>
+        {selectedBlog ? (
+          <BlogFullContent
+            blog={selectedBlog}
+            isFullscreen={isFullscreen}
+            onToggleFullscreen={() => setIsFullscreen((v) => !v)}
+            onBack={closeBlog}
+          />
+        ) : (
+          <Blog onOpen={openBlog} />
+        )}
+      </AnimatedSection>
+
+      <AnimatedSection reference={contactRef}>
+        <Contact />
+      </AnimatedSection>
 
       <Footer onScrollTo={scrollToSection} />
 
