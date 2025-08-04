@@ -22,7 +22,7 @@ export const Services = ({ onScrollTo }) => {
           What I Do
         </h1>
         <h1 className="md:w-3/4 w-[90%] libertinus-math-regular text-[18px] text-center">
-          I help bring digital ideas to life — whether it's a responsive
+          I help bring digital ideas to life, whether it's a responsive
           website, a custom software solution, or a mobile app that runs
           smoothly on any device. With a strong focus on clean code, user
           experience, and performance, I build solutions that not only work, but
@@ -46,7 +46,7 @@ export const Services = ({ onScrollTo }) => {
             Web-Development
           </h1>
           <p className=" libertinus-math-regular text-[15px]">
-            From landing pages to full-scale web apps, I craft responsive, fast,
+            From landing pages to full scale web apps, I craft responsive, fast,
             and visually engaging websites. Whether you're building from scratch
             or need a revamp, I can create a site that matches your goals and
             brand.
@@ -67,7 +67,7 @@ export const Services = ({ onScrollTo }) => {
           <p className=" libertinus-math-regular text-[15px]">
             I design and build custom software tailored to your specific
             workflows, goals, and challenges. From internal tools to
-            customer-facing platforms, I focus on performance, scalability, and
+            customer facing platforms, I focus on performance, scalability, and
             clean architecture.
           </p>
         </div>
@@ -85,14 +85,14 @@ export const Services = ({ onScrollTo }) => {
           </h1>
           <p className=" libertinus-math-regular text-[15px]">
             Need an app that works seamlessly across Android and iOS? I build
-            fast, functional, and user-friendly mobile applications that deliver
+            fast, functional, and user friendly mobile applications that deliver
             real value to users.
           </p>
         </div>
       </div>
       <div className=" grid gap-5  place-items-center">
         <h1 className="text-orange-700 font-bold md:text-2xl text-xl text-center libertinus-math-regular">
-          Big idea? Small idea? Weird idea? I’m in.
+          Big idea? Small idea? Weird idea? I am in.
         </h1>
         <button
           onClick={() => onScrollTo("contact")}

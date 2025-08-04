@@ -88,7 +88,7 @@ const Home = ({ onScrollTo }) => {
             Software
           </h1>
           <h1 className=" text-6xl md:ml-10 font-bold libertinus-math-regular">
-            Developer
+            Engineer
           </h1>
         </div>
         <div className="grid gap-3 md:place-items-start place-items-center">
@@ -98,7 +98,12 @@ const Home = ({ onScrollTo }) => {
             flutter.
           </h1>
           <button
-            onClick={() => onScrollTo("contact")}
+            onClick={() =>
+              window.open(
+                "https://drive.google.com/file/d/1z001w_WTrKoE1xrEi7prZGRlLbJaVa9_/view?usp=sharing",
+                "_blank"
+              )
+            }
             className={`libertinus-math-regular md:w-[20%] text-[16px] w-1/2 cursor-pointer   text-white   font-semibold   py-2  transition-transform duration-50 active:scale-[0.95] relative overflow-hidden border dark:bg-orange-700 dark:border-orange-700 rounded-md group ${
               isDark ? " hover:text-black" : " hover:text-white"
             }`}

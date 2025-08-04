@@ -80,6 +80,12 @@ const NavBar = ({ onScrollTo }) => {
             className={`libertinus-math-regular relative overflow-hidden border dark:bg-orange-700 dark:border-orange-700  px-6 py-2 rounded-md group text-[16px] text-white cursor-pointer font-semibold transition-transform duration-50 active:scale-[0.95] ${
               isDark ? " hover:text-black" : " hover:text-white"
             }`}
+            onClick={() =>
+              window.open(
+                "https://drive.google.com/uc?export=download&id=1z001w_WTrKoE1xrEi7prZGRlLbJaVa9_",
+                "_blank"
+              )
+            }
           >
             <span className="relative libertinus-math-regular z-10 transition-colors duration-500 group-hover:text-white">
               Download CV
@@ -194,6 +200,12 @@ const NavBar = ({ onScrollTo }) => {
 
               <MenuItem className="hover:bg-transparent flex justify-center focus:bg-transparent active:bg-transparent ">
                 <button
+                  onClick={() =>
+                    window.open(
+                      "https://drive.google.com/uc?export=download&id=1z001w_WTrKoE1xrEi7prZGRlLbJaVa9_",
+                      "_blank"
+                    )
+                  }
                   className={`libertinus-math-regular  text-[16px] text-white cursor-pointer  border border-orange-700  font-semibold transition-transform duration-50 active:scale-[0.95] bg-orange-700  px-5 py-2 rounded-md ${
                     isDark ? " hover:text-black" : " hover:text-white"
                   }`}

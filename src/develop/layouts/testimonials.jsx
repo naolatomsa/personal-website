@@ -39,18 +39,18 @@ const Testimonials = () => {
       quote:
         "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.",
     },
+    // {
+    //   id: 4,
+    //   name: "Dr. Hundaol",
+    //   link: "https://www.linkedin.com/in/naol-atomsa-808770215/",
+
+    //   title: "Cyber Security Specialist",
+    //   image: "https://placehold.co/100x100/0A1B2D/FFFFFF?text=Dr. Hunde",
+    //   quote:
+    //     "This service transformed our workflow. Highly recommend it for anyone looking to optimize their processes and boost productivity significantly.",
+    // },
     {
       id: 4,
-      name: "Dr. Hundaol",
-      link: "https://www.linkedin.com/in/naol-atomsa-808770215/",
-
-      title: "Cyber Security Specialist",
-      image: "https://placehold.co/100x100/0A1B2D/FFFFFF?text=Dr. Hunde",
-      quote:
-        "This service transformed our workflow. Highly recommend it for anyone looking to optimize their processes and boost productivity significantly.",
-    },
-    {
-      id: 5,
       name: "Zewuudu Jemema",
       title: "Data Center Specialist",
       link: "https://www.linkedin.com/in/naol-atomsa-808770215/",
@@ -170,8 +170,8 @@ const Testimonials = () => {
         Testimonials
       </h1>
       <h1 className=" md:w-1/2 w-[90%] libertinus-math-regular text-[18px] text-center font-sans">
-        I believe great work speaks for itself — but hearing from people I've
-        worked with says even more. Here's what some of my clients and
+        I believe great work speaks for itself, but hearing from people I have
+        worked with says even more. Here is what some of my clients and
         collaborators have said.
       </h1>
 

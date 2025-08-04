@@ -33,21 +33,24 @@ const NewAboutMe = () => {
           Who Am I?
         </h1>
         <h1 className="  libertinus-math-regular text-[18px] text-center">
-          <span>I’m {""}</span>
-          <span className="text-orange-700 font-bold">Naol Atomsa, </span>
-          <span>a passionate </span>
-          <span className="text-orange-700 font-bold">
-            full-stack software engineer{" "}
-          </span>
+          <span>I am {""}</span>
+          <span className="text-orange-700 font-bold">Naol Atomsa,</span>
+          <span className="text-orange-700 font-bold"> </span>
+
+          <span>a passionate</span>
+          <span className="text-orange-700 font-bold"> </span>
+
+          <span className="text-orange-700 font-bold">software engineer</span>
+          <span className="text-orange-700 font-bold"> </span>
 
           <span>
-            with a strong interest in machine learning and software development.
+            with a strong interest in software development and machine learning.
             I graduated from Adama Science and Technology University with a
-            degree in Computer Science and Engineering. I’ve worked on projects
-            ranging from AI-powered learning platforms to network security
-            tools, using technologies like React, Node.js, Spring Boot, and
-            Docker. Currently, I’m part of the Ethiopian Artificial Intelligence
-            Institute,{" "}
+            degree in Computer Science and Engineering. I have worked on
+            projects ranging from AI-powered learning platforms to network
+            security tools, using technologies like React, Node.js, Spring Boot,
+            and Docker. Currently, I’m part of the Ethiopian Artificial
+            Intelligence Institute,{" "}
           </span>
 
           <span className="text-orange-700 font-bold">
@@ -112,10 +115,10 @@ const NewAboutMe = () => {
               className=" text-orange-700 text-[15px]"
             />
           </div>
-          <h1 className="libertinus-math-regular text-[18px]">CGPA 3.65</h1>
+          <h1 className="libertinus-math-regular text-[18px]">Graduated</h1>
 
           <h1 className="libertinus-math-regular font-bold text-orange-700 text-[16 px]">
-            Major GPA 3.73
+            with Great Distinction.
           </h1>
         </div>
       </div>

@@ -6,10 +6,10 @@ import { preview } from "vite";
 export default function (eleventyConfig) {
   eleventyConfig.on("afterBuild", () => {
     const blogPosts = [];
-    const newsPosts = [];
-    const jobPosts = [];
+    // const newsPosts = [];
+    // const jobPosts = [];
     const allTags = new Set();
-    const allJobTags = new Set();
+    // const allJobTags = new Set();
     const tagFrequency = {};
     const postsPath = "./11tyBlog/posts/";
     const blogJsonPath = "./11tyDist/blog.json";
@@ -50,64 +50,34 @@ export default function (eleventyConfig) {
           tagFrequency[tag] = (tagFrequency[tag] || 0) + 1;
         });
 
-        const jobTags = data.jobTags || [];
-        jobTags.forEach((tag) => {
-          allJobTags.add(tag);
-          // tagFrequency[tag] = (tagFrequency[tag] || 0) + 1;
-        });
+        // const jobTags = data.jobTags || [];
+        // jobTags.forEach((tag) => {
+        //   allJobTags.add(tag);
+        //   // tagFrequency[tag] = (tagFrequency[tag] || 0) + 1;
+        // });
 
-        if (data.news === true) {
-          newsPosts.push({
-            news: data.title,
-            author: data.author || "Unknown Author",
-            date:
-              data.date ||
-              (existingPost ? existingPost.date : new Date().toISOString()),
-          });
-        } else if (data.job === true) {
-          jobPosts.push({
-            jobTags: data.jobTags,
-            author: data.author || "Unknown Author",
-            jobIdentification: data.jobIdentification || "Unknown Job",
-            jobCategory: data.jobCategory || "Unknown Job",
-            postingDate:
-              data.date ||
-              (existingPost ? existingPost.date : new Date().toISOString()),
-            locations: data.locations,
-            jobSchedule: data.jobSchedule,
-            title: data.title,
-            jobDiscription: data.jobDiscription,
-            responsibility: data.responsibility,
-            listOfResponsibility: data.listOfResponsibility,
-            listOfExprience: data.listOfExprience,
-            listOfTechnicalSkills: data.listOfTechnicalSkills,
-            listOfSoftSkills: data.listOfSoftSkills,
-            listOfEducation: data.listOfEducation,
-          });
-        } else {
-          blogPosts.push({
-            slug,
-            url: `/posts/${slug}/`,
-            title: data.title || "Untitled Post",
-            author: data.author || "Unknown Author",
-            categories: data.categories || "unknown category",
-            date:
-              data.date ||
-              (existingPost ? existingPost.date : new Date().toISOString()),
-            tags: tags,
-            expertise: data.expertise || "Not specified",
-            preview: preview,
-            markdown: content,
-          });
-        }
+        blogPosts.push({
+          slug,
+          url: `/posts/${slug}/`,
+          title: data.title || "Untitled Post",
+          author: data.author || "Unknown Author",
+          categories: data.categories || "unknown category",
+          date:
+            data.date ||
+            (existingPost ? existingPost.date : new Date().toISOString()),
+          tags: tags,
+          expertise: data.expertise || "Not specified",
+          preview: preview,
+          markdown: content,
+        });
       }
     });
 
     blogPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    newsPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    // newsPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    jobPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    // jobPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
     blogPosts.forEach((post) => {
       post.relatedPosts = blogPosts
@@ -136,15 +106,27 @@ export default function (eleventyConfig) {
       .map(([tag]) => tag);
 
     //  Save to files
-    fs.writeFileSync("./11tyDist/job.json", JSON.stringify(jobPosts, null, 2));
+    // fs.writeFileSync("./11tyDist/job.json", JSON.stringify(jobPosts, null, 2));
+    // fs.writeFileSync(
+    //   "./11tyDist/allJobTags.json",
+    //   JSON.stringify([...allJobTags], null, 2)
+    // );
     fs.writeFileSync(
-      "./11tyDist/allJobTags.json",
-      JSON.stringify([...allJobTags], null, 2)
+      "./11tyDist/blog.json",
+      JSON.stringify(blogPosts, null, 2)
     );
-    fs.writeFileSync("./11tyDist/blog.json", JSON.stringify(blogPosts, null, 2));
-    fs.writeFileSync("./11tyDist/news.json", JSON.stringify(newsPosts, null, 2));
-    fs.writeFileSync("./11tyDist/tags.json", JSON.stringify([...allTags], null, 2));
-    fs.writeFileSync("./11tyDist/topThree.json", JSON.stringify(topThree, null, 2));
+    // fs.writeFileSync(
+    //   "./11tyDist/news.json",
+    //   JSON.stringify(newsPosts, null, 2)
+    // );
+    fs.writeFileSync(
+      "./11tyDist/tags.json",
+      JSON.stringify([...allTags], null, 2)
+    );
+    fs.writeFileSync(
+      "./11tyDist/topThree.json",
+      JSON.stringify(topThree, null, 2)
+    );
   });
 
   return {

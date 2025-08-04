@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Common JavaScript Mistakes and How to Avoid Them</title>
+  <link rel="stylesheet" href="/styles/global.css">
+</head>
+<body class="bg-[#141414] text-[16px] leading-[25px] text-white">
+  <header class="text-white">
+  </header>
+  <main class="">
+    
+<article class="prose prose-invert  w-full break-words overflow-auto">
+  <div><h2>Introduction</h2>
+<p>JavaScript is one of the most popular programming languages today, powering both front-end and back-end applications. However, many developers, especially beginners fall into common pitfalls that can cause bugs, performance issues, or unexpected behavior.</p>
+<p>In this blog, we will explore some of the most frequent JavaScript mistakes and provide practical advice on how to avoid them. Whether you’re writing vanilla JS or using frameworks like React, understanding these pitfalls will help you write cleaner, more reliable code.</p>
+<h2>Common Mistakes and How to Avoid Them</h2>
+<h3>1. Misusing <code>==</code> vs <code>===</code></h3>
+<p>One of the most classic JavaScript mistakes is confusing the equality operators.</p>
+<ul>
+<li><code>==</code> performs type coercion before comparison, which can lead to unexpected truthy or falsy results.</li>
+<li><code>===</code> checks for both value and type equality without coercion.</li>
+</ul>
+<p><strong>Avoid:</strong> Use <code>===</code> for comparisons to prevent subtle bugs.</p>
+<pre><code class="language-js">console.log(0 == false); // true (due to coercion)
+console.log(0 === false); // false
+</code></pre>
+<h3>2. Not Declaring Variables Properly</h3>
+<p>Failing to declare variables with <code>let</code>, <code>const</code>, or <code>var</code> can lead to accidental globals, polluting the global scope.</p>
+<p><strong>Avoid:</strong> Always declare variables explicitly. Prefer <code>const</code> for constants and <code>let</code> for variables that change.</p>
+<pre><code class="language-js">function example() {
+  x = 10; // Creates a global variable — bad practice
+}
+
+let x = 10; // Proper declaration within scope
+</code></pre>
+<h3>3. Incorrect Use of Asynchronous Code</h3>
+<p>JavaScript’s async behavior (callbacks, promises, async/await) often trips developers.</p>
+<p><strong>Avoid:</strong> Always handle promises properly and use <code>try...catch</code> with async/await to catch errors.</p>
+<pre><code class="language-js">async function fetchData() {
+  try {
+    const response = await fetch(&quot;/api/data&quot;);
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error(&quot;Error fetching data:&quot;, error);
+  }
+}
+</code></pre>
+<h3>4. Modifying Objects or Arrays Directly</h3>
+<p>Directly mutating objects or arrays, especially in frameworks like React, can cause unexpected UI bugs.</p>
+<p><strong>Avoid:</strong> Use immutable updates, such as spread operators or utility libraries like Immutable.js.</p>
+<pre><code class="language-js">const arr = [1, 2, 3];
+// Instead of arr.push(4), do:
+const newArr = [...arr, 4];
+</code></pre>
+<h3>5. Ignoring Edge Cases in Conditionals</h3>
+<p>Assuming certain inputs or conditions without validation can cause bugs.</p>
+<p><strong>Avoid:</strong> Validate inputs and handle edge cases, such as <code>null</code>, <code>undefined</code>, or empty strings.</p>
+<pre><code class="language-js">function greet(name) {
+  if (!name) {
+    return &quot;Hello, Guest!&quot;;
+  }
+  return `Hello, ${name}!`;
+}
+</code></pre>
+<h2>Conclusion</h2>
+<p>Avoiding common JavaScript mistakes is essential for writing robust and maintainable code. By adopting best practices like strict equality checks, proper variable declarations, careful async handling, immutability, and input validation, developers can reduce bugs and improve performance.</p>
+<p>Continued learning and code reviews help catch these issues early, making your JavaScript journey smoother and more productive.</p>
+<hr>
+<p>Happy coding! If you have other JavaScript mistakes or tips you’d like to share, let me know in the comments.</p>
+</div>
+</article>
+
+
+  </main>
+</body>
+</html>

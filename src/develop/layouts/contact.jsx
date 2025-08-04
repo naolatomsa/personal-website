@@ -17,8 +17,8 @@ const Contact = () => {
       await emailjs.sendForm(
         "service_mwkngbl",
         "template_14s78bs",
-        form.current,
-        "6Wz8z9YsESNzyaged"
+        form.current
+        // "6Wz8z9YsESNzyaged"
       );
 
       !isDark
@@ -35,11 +35,17 @@ const Contact = () => {
     } catch (error) {
       console.error("FAILED...", error);
       !isDark
-        ? toast.error("Message not sent!")
+        ? toast.error("Message not sent!", {
+            style: {
+              borderRadius: "10px",
+              background: "#c2410c",
+              color: "#fff",
+            },
+          })
         : toast.error("Message not sent!", {
             style: {
               borderRadius: "10px",
-              background: "#333",
+              background: "#c2410c",
               color: "#fff",
             },
           });
@@ -87,7 +93,7 @@ const Contact = () => {
           You can reach me anytime!
         </p>
       </div>
-      
+
       <form
         ref={form}
         onSubmit={sendEmail}

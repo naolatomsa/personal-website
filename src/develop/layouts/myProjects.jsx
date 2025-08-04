@@ -33,14 +33,14 @@ const MyProjects = () => {
     setContent(`
               I was hired by Menas Cyber Solutions to bring their new website to
               life through code. The design and branding were provided by the
-              client — my role was to handle the full development of the site
+              client. My role was to handle the full development of the site
               based on those designs. I developed the main website using React
               and TailwindCSS, ensuring it was responsive, performant, and
-              production-ready. For dynamic content like blogs, job posts, and
+              production ready. For dynamic content like blogs, job posts, and
               news updates, I implemented Eleventy (11ty) to allow fast,
-              SEO-friendly static generation and easy content management. My
+              SEO friendly static generation and easy content management. My
               focus was on turning their visual assets into a fully functional
-              website — clean code, smooth animations, and scalable structure
+              website, clean code, smooth animations, and scalable structure
               across all pages.
             `);
     setImage(menasGroupPhoto);
@@ -52,17 +52,14 @@ const MyProjects = () => {
     setLinkName("www.jegoltech.com");
     setTopic("React + TailwindCSS");
     setContent(`
-              I was hired by Menas Cyber Solutions to bring their new website to
-              life through code. The design and branding were provided by the
-              client — my role was to handle the full development of the site
-              based on those designs. I developed the main website using React
-              and TailwindCSS, ensuring it was responsive, performant, and
-              production-ready. For dynamic content like blogs, job posts, and
-              news updates, I implemented Eleventy (11ty) to allow fast,
-              SEO-friendly static generation and easy content management. My
-              focus was on turning their visual assets into a fully functional
-              website — clean code, smooth animations, and scalable structure
-              across all pages.
+              I was hired by JegolTech to design and develop
+              their new website from the ground up. 
+              I handled both the UI/UX design and full 
+              implementation using React and TailwindCSS. 
+              My focus was on creating a clean, modern, 
+              and responsive experience across all devices. 
+              I built the site to be fast, scalable, and production-ready. 
+              Then deployed it live for public use.
             `);
     setImage(jegol);
   };
@@ -196,9 +193,8 @@ const MyProjects = () => {
             </button>
             <h2 className=" font-bold text-md my-2">React + TailwindCSS</h2>{" "}
             <p className=" paragraph mb-6 text-[12px]">
-              I was hired by Menas Cyber Solutions to bring their new website to
-              life through code. The design and branding were provided by the
-              ...
+              I was hired by JegolTech to design and develop their new website
+              from the ground up. I handled...
             </p>
             <button
               onClick={() => {
