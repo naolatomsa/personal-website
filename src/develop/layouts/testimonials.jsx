@@ -16,8 +16,8 @@ const Testimonials = () => {
       link: "https://www.linkedin.com/in/naol-atomsa-808770215/",
       title: "UI/UX Designer",
       image: "https://placehold.co/100x100/0A1B2D/FFFFFF?text=ND", // Placeholder image
-      quote:
-        "Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique amet sed massa nibh lectus netus in, aliquet donec morbi convallis pretium. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique amet sed massa nibh lectus netus in, aliquet donec morbi convallis pretium",
+      quote: `Naol A delivers exactly what you need from a dev partner when design precision matters. Having collaborated on multiple UX projects I can confirm his builds come out looking exactly like the mockups every time - even when initial specs aren't fully fleshed out. Asks the kind of questions that matter - you know where its clear he's thinking about both how it looks and how people actually use the thing<br><br>  
+      What really stands out is how he navigates imperfect handoffs - manages to bridge gaps in documentation without missing a beat. Tight turnaround times too. You get zero drama execution that still maintains creative intent which honestly is rarer than it should be in this field.`,
     },
     {
       id: 2,
@@ -157,6 +157,21 @@ const Testimonials = () => {
     setPendingLink(link);
   };
 
+  const maxWords = 40;
+
+  const [expandedIds, setExpandedIds] = useState([]);
+
+  const toggleExpand = (id) => {
+    setExpandedIds((prev) =>
+      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
+    );
+  };
+
+  const getTrimmedQuote = (quote) => {
+    const words = quote.split(" ");
+    return words.slice(0, maxWords).join(" ") + "...";
+  };
+
   return (
     <div
       className={`h-full border-[1px]  ${
@@ -178,74 +193,92 @@ const Testimonials = () => {
       {/* Testimonials Carousel Container */}
       <div
         ref={carouselRef}
-        className="relative w-full   overflow-x-scroll scroll-smooth snap-x snap-mandatory flex py-4 hide-scrollbar" // Added hide-scrollbar for aesthetics
+        className="relative w-full flex items-center overflow-x-scroll scroll-smooth snap-x snap-mandatory  py-4 hide-scrollbar" // Added hide-scrollbar for aesthetics
       >
-        {testimonials.map((testimonial, index) => (
-          <div
-            key={testimonial.id}
-            onClick={() =>
-              handleClientClick(testimonial.link, testimonial.name)
-            }
-            // Use flex-none for fixed width, and responsive widths for visibility of adjacent cards
-            // On small screens (sm), full width, on medium (md), half width, on large (lg), third width.
-            className={`flex-none w-[90%] md:w-1/2 p-4 snap-center transition-all duration-300 ease-in-out
+        {testimonials.map((testimonial, index) => {
+          const isExpanded = expandedIds.includes(testimonial.id);
+          const isLong = testimonial.quote.split(" ").length > maxWords;
+          return (
+            <div
+              key={testimonial.id}
+              // Use flex-none for fixed width, and responsive widths for visibility of adjacent cards
+              // On small screens (sm), full width, on medium (md), half width, on large (lg), third width.
+              className={`flex-none w-[90%] h-full  md:w-1/2 p-4 snap-center transition-all duration-300 ease-in-out
             ${
               activeIndex === index
                 ? "opacity-100 scale-105"
                 : "opacity-50 scale-95"
             }`}
-          >
-            <div
-              className={`rounded-xl bg-[#7C7C7C1F] bg-opacity-50  flex md:flex-row flex-col md:gap-10 items-center text-center p-5 md:p-10 h-full justify-between 
-                `}
             >
-              {/* Testimonial Image */}
-              <div className="flex-shrink-0">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-20 h-20 rounded-full object-cover border-4 dark:border-orange-700 shadow-md"
-                  // Fallback for image loading errors
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src =
-                      "https://placehold.co/100x100/0A1B2D/FFFFFF?text=Error";
-                  }}
-                />
-              </div>
+              <div
+                className={`rounded-xl bg-[#7C7C7C1F] bg-opacity-50  flex md:flex-row flex-col md:gap-10 items-center text-center p-5 md:p-10 h-full justify-between 
+                `}
+              >
+                {/* Testimonial Image */}
+                <div className="flex-shrink-0 ">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-20 h-20 rounded-full object-cover border-4 dark:border-orange-700 shadow-md"
+                    // Fallback for image loading errors
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src =
+                        "https://placehold.co/100x100/0A1B2D/FFFFFF?text=Error";
+                    }}
+                  />
+                </div>
 
-              {/* Testimonial Content */}
-              <div className="flex-grow">
-                <p className="libertinus-math-regular text-[14px] flex flex-col  leading-relaxed  ">
-                  <span className="dark:text-orange-700  place-self-start text-3xl font-extrabold mr-2 ">
-                    “
-                  </span>
-                  {testimonial.quote}
-                  <span className="dark:text-orange-700 text-3xl place-self-end font-extrabold">
-                    “
-                  </span>
-                </p>
-                {/* <span className="text-blue-500 text-3xl font-extrabold ml-2">
+                {/* Testimonial Content */}
+                <div className="flex-grow">
+                  <p className="libertinus-math-regular text-[14px] flex flex-col  leading-relaxed  ">
+                    <span className="dark:text-orange-700  place-self-start text-3xl font-extrabold mr-2 ">
+                      “
+                    </span>
+                    <div>
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html:
+                            isExpanded || !isLong
+                              ? testimonial.quote
+                              : getTrimmedQuote(testimonial.quote),
+                        }}
+                      />
+                      {isLong && (
+                        <button
+                          onClick={() => toggleExpand(testimonial.id)}
+                          className="ml-2 cursor-pointer text-blue-600 hover:underline"
+                        >
+                          {isExpanded ? "See less" : "See more"}
+                        </button>
+                      )}
+                    </div>
+                    <span className="dark:text-orange-700 text-3xl place-self-end font-extrabold">
+                      “
+                    </span>
+                  </p>
+                  {/* <span className="text-blue-500 text-3xl font-extrabold ml-2">
                   ”
                 </span> */}
+                </div>
+                {/* Testimonial Author */}
+                <button
+                  className="w-full cursor-pointer"
+                  onClick={() =>
+                    handleClientClick(testimonial.link, testimonial.name)
+                  }
+                >
+                  <p className="font-bold dark:text-orange-700 text-lg libertinus-math-regular">
+                    {testimonial.name}
+                  </p>
+                  <p className="text-sm text-gray-500 libertinus-math-regular">
+                    {testimonial.title}
+                  </p>
+                </button>
               </div>
-              {/* Testimonial Author */}
-              <button
-                className="w-full cursor-pointer"
-                onClick={() =>
-                  handleClientClick(testimonial.link, testimonial.name)
-                }
-              >
-                <p className="font-bold dark:text-orange-700 text-lg libertinus-math-regular">
-                  {testimonial.name}
-                </p>
-                <p className="text-sm text-gray-500 libertinus-math-regular">
-                  {testimonial.title}
-                </p>
-              </button>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <div className="hidden">

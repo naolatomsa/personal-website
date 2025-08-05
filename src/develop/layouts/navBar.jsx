@@ -28,8 +28,8 @@ const NavBar = ({ onScrollTo }) => {
     <div
       className={`${
         isDark
-          ? "bg-gray-300 border-b border-gray-400 text-black"
-          : "bg-black text-white border-b border-[#333333]"
+          ? "bg-[#21212133] backdrop-blur-2xl border-b border-gray-400 text-black"
+          : "bg-[#21212133] backdrop-blur-2xl text-white border-b border-[#333333]"
       }  w-screen z-50 navbar libertinus-math-regular `}
     >
       <div className="flex  font-sans py-5 items-center md:justify-center mx-auto md:w-3/4 w-[90%]">
@@ -119,7 +119,7 @@ const NavBar = ({ onScrollTo }) => {
 
             <MenuList
               id="menu"
-              className="bg-[#21212133] border p-5 border-orange-700 backdrop-blur-2xl rounded-xl w-full navbar:hidden flex flex-col gap-7 justify-center h-3/4 z-50"
+              className="bg-[#21212133] backdrop-blur-2xl border p-5 border-orange-700  rounded-xl w-full navbar:hidden flex flex-col gap-7 justify-center h-3/4 z-50"
             >
               <MenuItem className="col-span-2 hover:bg-transparent justify-self-start focus:bg-transparent active:bg-transparent">
                 <div
@@ -147,7 +147,7 @@ const NavBar = ({ onScrollTo }) => {
                         Contact Me
                       </div>
                     </li>
-                    <li
+                    {/* <li
                       className="flex justify-center items-center gap-3 px-2 py-3"
                       style={{
                         borderLeft: "1px solid transparent",
@@ -163,7 +163,7 @@ const NavBar = ({ onScrollTo }) => {
                       >
                         Addis Ababa, Ethiopia
                       </a>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               </MenuItem>

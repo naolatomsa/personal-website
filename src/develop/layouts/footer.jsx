@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
@@ -9,6 +9,7 @@ import {
 import { useTheme } from "../common/themeProvider";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import MyModal from "../common/dialog";
+import { toast, Toaster } from "react-hot-toast";
 
 export const Footer = ({ onScrollTo }) => {
   const { isDark } = useTheme();
@@ -62,6 +63,45 @@ export const Footer = ({ onScrollTo }) => {
       );
     }
   }
+
+  const handleCopy = (text) => {
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(text).then(() => {
+        toast.success("Copied!", {
+          position: "bottom-center",
+          style: {
+            borderRadius: "10px",
+            background: "#000",
+            color: "#fff",
+          },
+        });
+      });
+    } else {
+      // fallback for older browsers
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "absolute";
+      textarea.style.left = "-9999px";
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand("copy");
+        toast.success("Copied!", {
+          position: "bottom-center",
+          style: {
+            borderRadius: "10px",
+            background: "#000",
+            color: "#fff",
+          },
+        });
+      } catch (err) {
+        toast.error("Failed to copy");
+      }
+      document.body.removeChild(textarea);
+    }
+  };
+
   return (
     <div
       className={`libertinus-math-regular  border-[1px] ${
@@ -206,14 +246,20 @@ export const Footer = ({ onScrollTo }) => {
         </button>
       </div>
       <div className="grid  gap-2 py-5  w-full mx-auto">
-        <div className="flex gap-2 items-center justify-center text-orange-700">
+        <button
+          onClick={() => handleCopy("+251943134213", "phone")}
+          className="flex gap-2 items-center cursor-copy justify-center text-orange-700"
+        >
           <FontAwesomeIcon className="" icon={faPhone} />
           <h1 className=""> +251-943-134-213</h1>
-        </div>
-        <div className="flex gap-2 items-center justify-center text-orange-700">
+        </button>
+        <button
+          onClick={() => handleCopy("naolatomsa4@gmail.com", "email")}
+          className="cursor-copy flex gap-2 items-center justify-center text-orange-700"
+        >
           <FontAwesomeIcon icon={faEnvelope} />
           <h1>naolatomsa4@gmail.com</h1>
-        </div>
+        </button>
       </div>
 
       <div
