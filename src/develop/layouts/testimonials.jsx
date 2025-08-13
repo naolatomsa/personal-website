@@ -19,26 +19,7 @@ const Testimonials = () => {
       quote: `Naol A delivers exactly what you need from a dev partner when design precision matters. Having collaborated on multiple UX projects I can confirm his builds come out looking exactly like the mockups every time - even when initial specs aren't fully fleshed out. Asks the kind of questions that matter - you know where its clear he's thinking about both how it looks and how people actually use the thing<br><br>  
       What really stands out is how he navigates imperfect handoffs - manages to bridge gaps in documentation without missing a beat. Tight turnaround times too. You get zero drama execution that still maintains creative intent which honestly is rarer than it should be in this field.`,
     },
-    {
-      id: 2,
-      name: "Biruk Solomon",
-      link: "https://www.linkedin.com/in/naol-atomsa-808770215/",
 
-      title: "Cyber Security Specialist",
-      image: "https://placehold.co/100x100/0A1B2D/FFFFFF?text=BS", // Placeholder image
-      quote:
-        "In enim cursus odio accumsan, id leo urna velit neque mattis id tellus arcu condimentum. Augue dictum dolor elementum convallis dignissim malesuada commodo ultrices.",
-    },
-    {
-      id: 3,
-      name: "Manuhe .",
-      link: "https://www.linkedin.com/in/naol-atomsa-808770215/",
-
-      title: "MENAS CEO",
-      image: "https://placehold.co/100x100/0A1B2D/FFFFFF?text=Manuhe", // Placeholder image
-      quote:
-        "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.",
-    },
     // {
     //   id: 4,
     //   name: "Dr. Hundaol",
@@ -49,15 +30,15 @@ const Testimonials = () => {
     //   quote:
     //     "This service transformed our workflow. Highly recommend it for anyone looking to optimize their processes and boost productivity significantly.",
     // },
-    {
-      id: 4,
-      name: "Zewuudu Jemema",
-      title: "Data Center Specialist",
-      link: "https://www.linkedin.com/in/naol-atomsa-808770215/",
-      image: "https://placehold.co/100x100/0A1B2D/FFFFFF?text=ZJ",
-      quote:
-        "Outstanding support and an intuitive platform. It's truly a game-changer for digital marketing strategies, providing measurable results.",
-    },
+    // {
+    //   id: 4,
+    //   name: "Zewuudu Jemema",
+    //   title: "Data Center Specialist",
+    //   link: "https://www.linkedin.com/in/naol-atomsa-808770215/",
+    //   image: "https://placehold.co/100x100/0A1B2D/FFFFFF?text=ZJ",
+    //   quote:
+    //     "Outstanding support and an intuitive platform. It's truly a game-changer for digital marketing strategies, providing measurable results.",
+    // },
   ];
 
   // Effect to update activeIndex on scroll
