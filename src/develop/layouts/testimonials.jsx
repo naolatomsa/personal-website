@@ -13,7 +13,7 @@ const Testimonials = () => {
     {
       id: 1,
       name: "Nebiyu Daniel",
-      link: "https://www.linkedin.com/in/naol-atomsa-808770215/",
+      link: "https://www.linkedin.com/in/nebiyu-daniel-6a55701ab/",
       title: "UI/UX Designer",
       image: "https://placehold.co/100x100/0A1B2D/FFFFFF?text=ND", // Placeholder image
       quote: `Naol A delivers exactly what you need from a dev partner when design precision matters. Having collaborated on multiple UX projects I can confirm his builds come out looking exactly like the mockups every time - even when initial specs aren't fully fleshed out. Asks the kind of questions that matter - you know where its clear he's thinking about both how it looks and how people actually use the thing<br><br>  
