@@ -82,7 +82,9 @@ const NavBar = ({ onScrollTo }) => {
             }`}
             onClick={() =>
               window.open(
-                "https://drive.google.com/uc?export=download&id=1z001w_WTrKoE1xrEi7prZGRlLbJaVa9_",
+                !isDark
+                  ? "https://drive.google.com/uc?export=download&id=1QiP_xOCIBVoS19BrlljlwrXgQNYW8SzZ"
+                  : "https://drive.google.com/uc?export=download&id=1T3GpvAWlOBX9c1YTZTcwnKmLoCjvZ0D-",
                 "_blank"
               )
             }

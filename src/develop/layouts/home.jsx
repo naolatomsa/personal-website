@@ -100,7 +100,9 @@ const Home = ({ onScrollTo }) => {
           <button
             onClick={() =>
               window.open(
-                "https://drive.google.com/file/d/1z001w_WTrKoE1xrEi7prZGRlLbJaVa9_/view?usp=sharing",
+                !isDark
+                  ? "https://www.canva.com/design/DAGwsCS4nhg/-4u6ApjXwdRAdgH6YE65FA/view?utm_content=DAGwsCS4nhg&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hf82c50f99c"
+                  : "https://www.canva.com/design/DAGwzO298Vk/w4SsBbk5YQ6ZvdqS3v03Xg/view?utm_content=DAGwzO298Vk&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hfdc85ee0db",
                 "_blank"
               )
             }
