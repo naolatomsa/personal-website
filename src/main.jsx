@@ -11,8 +11,8 @@ createRoot(document.getElementById("root")).render(
     <ThemeProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/personal-website" element={<App />} />
-          <Route path="personal-website/details" element={<BlogContent />} />
+          <Route path="/" element={<App />} />
+          <Route path="/details" element={<BlogContent />} />
           {/* add more routes here as needed */}
         </Routes>
       </BrowserRouter>
